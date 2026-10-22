@@ -1,0 +1,29 @@
+STIG STUDIO v0.7.1 EXPERIMENTAL PREVIEW — LIMITED EVALUATION PERMISSION
+
+Copyright (c) 2026 David Finch. All rights reserved.
+
+This permission applies only to the files in the STIG-Studio-Preview repository
+and the specific experimental version of STIG Studio published from it.
+
+Permission is granted, without fee, to individuals to access, run, and evaluate
+this preview through the official GitHub Pages site and to download one or more
+private copies of this preview solely for personal or organizational evaluation
+and bug reporting, subject to their applicable organizational policies.
+
+Except for rights required by applicable law or granted by GitHub's Terms of
+Service for public repositories, no other rights are granted. In particular,
+no general permission is granted to redistribute, sell, sublicense, publish
+modified versions, or incorporate this source code into other products.
+
+This permission does not cover other repositories, earlier versions, later
+versions, or third-party materials. All rights not expressly granted are reserved.
+
+THIS SOFTWARE IS EXPERIMENTAL AND IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT, TO THE EXTENT ALLOWED BY LAW.
+THE AUTHOR IS NOT LIABLE FOR LOSS OF DATA OR OTHER DAMAGES ARISING FROM ITS USE,
+TO THE EXTENT ALLOWED BY LAW.
+
+Do not use the preview for operational security assessments or with sensitive,
+classified, controlled, or real system assessment data. This software is not
+affiliated with or endorsed by DISA, DoD, or the U.S. Government.

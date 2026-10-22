@@ -1,0 +1,118 @@
+{
+  "title": "SYNTHETIC PREVIEW - NOT OPERATIONAL",
+  "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+  "stigs": [
+    {
+      "stig_name": "Synthetic Example STIG (not a real STIG)",
+      "display_name": "Synthetic Example",
+      "stig_id": "SYNTHETIC_STIG",
+      "release_info": "Synthetic demo only",
+      "version": "0",
+      "uuid": "11111111-1111-4111-8111-111111111111",
+      "reference_identifier": "",
+      "size": 2,
+      "rules": [
+        {
+          "group_id_src": "SV-TEST-0001",
+          "group_tree": [
+            {
+              "id": "SV-TEST-0001",
+              "title": "Synthetic demo group",
+              "description": "Fictitious control for preview testing"
+            }
+          ],
+          "group_id": "SV-TEST-0001",
+          "severity": "medium",
+          "group_title": "Synthetic configuration setting one",
+          "rule_id_src": "SV-TEST-0001_rule",
+          "rule_id": "SV-TEST-0001",
+          "rule_version": "TEST-R1",
+          "rule_title": "Check synthetic setting one",
+          "fix_text": "For testing, update imaginary setting A.",
+          "weight": "10.0",
+          "check_content": "Inspect synthetic configuration setting A.",
+          "check_content_ref": {
+            "href": "",
+            "name": ""
+          },
+          "classification": "Unclassified",
+          "discussion": "Synthetic example only, not a real STIG requirement.",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "responsibility": "",
+          "mitigations": "",
+          "legacy_ids": [],
+          "ccis": [],
+          "reference_identifier": "",
+          "uuid": "10000000-0000-4000-8000-000000000001",
+          "stig_uuid": "11111111-1111-4111-8111-111111111111",
+          "status": "not_reviewed",
+          "overrides": {},
+          "comments": "",
+          "finding_details": "",
+          "srg_id": ""
+        },
+        {
+          "group_id_src": "SV-TEST-0002",
+          "group_tree": [
+            {
+              "id": "SV-TEST-0002",
+              "title": "Synthetic demo group",
+              "description": "Fictitious control for preview testing"
+            }
+          ],
+          "group_id": "SV-TEST-0002",
+          "severity": "low",
+          "group_title": "Synthetic configuration setting two",
+          "rule_id_src": "SV-TEST-0002_rule",
+          "rule_id": "SV-TEST-0002",
+          "rule_version": "TEST-R2",
+          "rule_title": "Check synthetic setting two",
+          "fix_text": "For testing, update imaginary setting B.",
+          "weight": "10.0",
+          "check_content": "Inspect synthetic configuration setting B.",
+          "check_content_ref": {
+            "href": "",
+            "name": ""
+          },
+          "classification": "Unclassified",
+          "discussion": "Synthetic example only, not a real STIG requirement.",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "responsibility": "",
+          "mitigations": "",
+          "legacy_ids": [],
+          "ccis": [],
+          "reference_identifier": "",
+          "uuid": "10000000-0000-4000-8000-000000000002",
+          "stig_uuid": "11111111-1111-4111-8111-111111111111",
+          "status": "not_a_finding",
+          "overrides": {},
+          "comments": "Synthetic test: evaluated imaginary B.",
+          "finding_details": "",
+          "srg_id": ""
+        }
+      ]
+    }
+  ],
+  "active": false,
+  "mode": 2,
+  "has_path": false,
+  "target_data": {
+    "target_type": "Computing",
+    "host_name": "SYNTHETIC-HOST",
+    "ip_address": "192.0.2.10",
+    "mac_address": "02:00:00:00:00:01",
+    "fqdn": "synthetic-host.example.invalid",
+    "comments": "Entirely synthetic asset; reserved documentation IP and domain.",
+    "role": "None",
+    "is_web_database": false,
+    "technology_area": "Test",
+    "web_db_site": "",
+    "web_db_instance": "",
+    "classification": "Unclassified"
+  },
+  "cklb_version": "1.0"
+}

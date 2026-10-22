@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimental public preview of STIG Studio v0.7.1, an offline-first STIG checklist review application. Not for operational use.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>STIG Studio v0.7.1 | Experimental Preview</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1116;--surface:#141e26;--line:#31424e;--text:#eaf0f4;--muted:#b3c4ce;--accent:#55c6df;--warning:#f1bf6a}
+    *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:radial-gradient(circle at 95% 0%,#15343d 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif}
+    a{color:var(--accent)}a:focus-visible{outline:3px solid var(--warning);outline-offset:3px}main{max-width:910px;margin:0 auto;padding:48px 22px 70px}
+    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:16px 0 8px}h2{font-size:20px;margin:0 0 12px}p{margin:9px 0 16px}
+    .version{font:14px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted)}.lead{font-size:18px;color:var(--muted);max-width:750px}
+    .warning{border:1px solid #a57a3a;background:#332717;border-radius:12px;padding:20px 22px;margin:28px 0;box-shadow:0 10px 40px #0002}.warning strong{color:var(--warning)}
+    .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:25px 0 35px}.btn{background:var(--accent);color:#06212a;border-radius:8px;display:inline-block;padding:12px 18px;text-decoration:none;font-weight:800}.btn:hover{filter:brightness(1.12)}.btn.secondary{background:#243946;color:var(--text);border:1px solid #537082}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}.card p{color:var(--muted)}
+    ul{padding-left:22px;margin:10px 0}li{margin:9px 0}footer{border-top:1px solid var(--line);margin-top:34px;padding-top:22px;color:var(--muted);font-size:13px}
+    @media(max-width:650px){main{padding:28px 16px 45px}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">STIG Studio · Public test build</div>
+  <h1>STIG Studio <span style="color:var(--accent)">v0.7.1</span></h1>
+  <div class="version">Experimental preview · Snapshot build · Not a validated release</div>
+  <p class="lead">An offline-first, browser-based tool for viewing and editing STIG checklists, comparing assessments, and combining asset checklists. This public preview is for usability feedback and controlled testing.</p>
+  <section class="warning" aria-label="Experimental release warning">
+    <strong>EXPERIMENTAL — DO NOT USE FOR OPERATIONAL ASSESSMENTS</strong>
+    <p>This build has known or suspected data-integrity risks affecting conversion, comparison, and combined exports. It has not passed a full regression or interoperability test suite. Do not rely on the exported results for authorization, compliance, or production reporting.</p>
+    <p><strong>Use synthetic or fully sanitized test files only.</strong> Do not load classified, controlled, sensitive, or actual system assessment data into this public test deployment.</p>
+  </section>
+  <div class="actions">
+    <a class="btn" href="./stig-studio-v0.7.1.html">Launch experimental preview →</a>
+    <a class="btn secondary" href="https://github.com/david-b-finch/STIG-Studio-Preview/issues/new/choose">Report an issue</a>
+  </div>
+  <div class="grid">
+    <section class="card">
+      <h2>What to try</h2>
+      <ul>
+        <li>Open synthetic CKLB or CKL files.</li>
+        <li>Change a test rule's status, comments, or finding details.</li>
+        <li>Save the file and verify the exported data independently.</li>
+        <li>Test comparisons, advanced filters, and asset combining.</li>
+        <li>Test in Firefox and Chromium-based browsers.</li>
+      </ul>
+      <p>Start with the <a href="./fixtures/synthetic-preview.cklb" download>synthetic example checklist</a> and the <a href="./fixtures/synthetic-preview-reference.cklb" download>comparison reference</a>.</p>
+    </section>
+    <section class="card">
+      <h2>Give useful feedback</h2>
+      <ul>
+        <li>Specify browser and version.</li>
+        <li>Describe the exact steps needed to reproduce the problem.</li>
+        <li>Explain expected behavior versus actual behavior.</li>
+        <li>Attach only synthetic or sanitized sample data.</li>
+        <li>Indicate whether saved files re-open successfully.</li>
+      </ul>
+      <p>Feedback is collected through <a href="https://github.com/david-b-finch/STIG-Studio-Preview/issues">public GitHub Issues</a>; do not post sensitive data.</p>
+    </section>
+    <section class="card">
+      <h2>Privacy and local processing</h2>
+      <p>Source inspection indicates that checklist parsing and export occur in your browser without an application server or intentional checklist uploads. This is <em>not</em> an independent security audit.</p>
+      <p>GitHub may process ordinary site-visitor information. Files you save are downloaded through your browser; unsaved application state is not durable.</p>
+    </section>
+    <section class="card">
+      <h2>Scope and ownership</h2>
+      <p>This is an unofficial independent software experiment, not a DISA, DoD, or U.S. Government product or endorsement.</p>
+      <p>Copyright reserved. A limited permission to evaluate this particular build is stated in the <a href="./LICENSE">preview evaluation terms</a>. The source is publicly viewable but not presented as open source.</p>
+    </section>
+  </div>
+  <footer>
+    <p>Version 0.7.1 experimental snapshot. This preview may be replaced or withdrawn. Keep local backups of any test output and verify exported content before using it for further testing.</p>
+    <p><a href="https://github.com/david-b-finch/STIG-Studio-Preview">Preview repository</a> · <a href="./TESTING.md">Test instructions</a> · <a href="./LICENSE">Evaluation terms</a></p>
+  </footer>
+</main>
+</body>
+</html>

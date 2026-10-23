@@ -1,6 +1,7 @@
 # Experimental Preview — Testing Guide
 
-**Build:** STIG Studio v0.7.1  
+**Build:** STIG Studio v0.7.2
+
 **Status:** Experimental; not validated for operational use.
 
 ## Test data restrictions
@@ -21,6 +22,21 @@ credentials, classified material, or controlled data to this public project.
 - [ ] Save Filtered CKLB and inspect the exported rule count and metadata.
 - [ ] Combine synthetic inputs; compare result against expected rule inventory.
 - [ ] For ZIP exports, extract externally and validate CRC/contents.
+
+## Reference import smoke test
+
+- [ ] Import `fixtures/synthetic-reference.zip` using **Import STIG Reference Archives**.
+- [ ] One STIG opens directly with one rule marked Not Reviewed, without a selection dialog.
+- [ ] Rule title reads "Example rule"; SRG ID is separate from the title.
+- [ ] Enter a synthetic hostname using **Asset Info**.
+- [ ] Save CKLB and reopen it; verify rule text, status, and asset information.
+- [ ] Repeat with `fixtures/synthetic-reference.xml`.
+- [ ] Import invalid ZIP/XML and verify a useful error without creating an assessment.
+
+Stored/DEFLATE reference ZIPs and direct XCCDF 1.1/1.2 XML are supported within
+resource limits. Tailored profiles, inheritance, automated/complex checks,
+ZIP64/encrypted/multipart archives, and SCAP data-stream wrappers are unsupported.
+No archive scripts, stylesheets, or supporting documents are executed.
 
 ## What to report
 

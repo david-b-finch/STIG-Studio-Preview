@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1" id="TEST_STIG">
+<title>Synthetic DISA-style STIG — café</title><version>2</version>
+<plain-text id="release-info">Release: 3 Benchmark Date: 2026-01-01</plain-text>
+<Group id="V-parent"><title>Parent</title><Group id="V-123"><title>SRG-OS-000001</title>
+<Rule id="SV-123r4_rule" severity="medium" weight="10.0"><version>TEST-00-000001</version><title>Example rule</title>
+<description>&lt;VulnDiscussion&gt;Discussion &amp;amp; Unicode café
+Second line&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;None&lt;/FalsePositives&gt;</description>
+<ident system="http://cyber.mil/cci">CCI-000001</ident><reference><title>Reference</title></reference>
+<check system="http://checklists.nist.gov/xccdf/1.1/check:systems:manual"><check-content-ref href="manual" name="M"/><check-content>Check line 1
+Check line 2</check-content></check>
+<fixtext>Fix it</fixtext></Rule></Group></Group></Benchmark>

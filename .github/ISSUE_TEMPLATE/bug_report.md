@@ -9,7 +9,7 @@ assignees: []
 **Safety reminder:** GitHub Issues are public. Do not attach real CKLs/CKLBs,
 actual system identifiers, classified/CUI content, or sensitive screenshots.
 
-**Preview version:** v0.7.1
+**Preview version:** v0.7.2
 
 **Browser + version:**
 

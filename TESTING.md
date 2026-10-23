@@ -1,6 +1,6 @@
 # Experimental Preview — Testing Guide
 
-**Build:** STIG Studio v0.7.2
+**Build:** STIG Studio v0.7.3
 
 **Status:** Experimental; not validated for operational use.
 
@@ -22,6 +22,21 @@ credentials, classified material, or controlled data to this public project.
 - [ ] Save Filtered CKLB and inspect the exported rule count and metadata.
 - [ ] Combine synthetic inputs; compare result against expected rule inventory.
 - [ ] For ZIP exports, extract externally and validate CRC/contents.
+
+## Assessment workflow smoke test
+
+- [ ] Open `fixtures/synthetic-preview.cklb`.
+- [ ] Use **Next Not Reviewed** to navigate matching rules; verify it respects filters and does not change assessments.
+- [ ] Use **Import Assessment** and select `fixtures/synthetic-preview-reference.cklb`.
+- [ ] Verify the preview appears before any status, findings, or comments change.
+- [ ] Cancel once and verify nothing changes; repeat and apply the import.
+- [ ] Verify selected assessment fields change while current rule instructions and asset data remain intact.
+- [ ] Verify Overrides is opt-in and Skip source rules marked Not Reviewed is optional.
+- [ ] Save full and filtered CKLBs, reopen them, and verify edited fields and `stig.size` counts.
+
+Assessment imports apply to all exact matches, including rules hidden by filters.
+Blank selected source values overwrite destination values. Ambiguous matches and
+known version/release differences are skipped. No rules or STIGs are added.
 
 ## Reference import smoke test
 
@@ -55,7 +70,7 @@ to remain in the browser, but the preview has not been independently audited.
 ## High-priority investigations
 
 1. Data preservation on CKLB import/edit/full save.
-2. Lossy legacy CKL conversion and non-recalculated filtered export counts.
+2. Legacy CKL conversion of metadata not represented by standard checklist fields.
 3. Incorrect comparison matches with duplicated rule identifiers in different STIGs.
 4. Asset merge outcomes, conflict handling, metadata loss, and UUID relationships.
 5. ZIP CRC, Unicode names, final filename uniqueness, and report consistency.

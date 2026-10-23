@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Experimental public preview of STIG Studio v0.7.2, an offline-first STIG checklist review application. Not for operational use.">
+  <meta name="description" content="Experimental public preview of STIG Studio v0.7.3, an offline-first STIG checklist review application. Not for operational use.">
   <meta name="robots" content="noindex, nofollow">
-  <title>STIG Studio v0.7.2 | Experimental Preview</title>
+  <title>STIG Studio v0.7.3 | Experimental Preview</title>
   <style>
     :root{color-scheme:dark;--bg:#0b1116;--surface:#141e26;--line:#31424e;--text:#eaf0f4;--muted:#b3c4ce;--accent:#55c6df;--warning:#f1bf6a}
     *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:radial-gradient(circle at 95% 0%,#15343d 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif}
@@ -22,7 +22,7 @@
 <body>
 <main>
   <div class="eyebrow">STIG Studio · Public test build</div>
-  <h1>STIG Studio <span style="color:var(--accent)">v0.7.2</span></h1>
+  <h1>STIG Studio <span style="color:var(--accent)">v0.7.3</span></h1>
   <div class="version">Experimental preview · Snapshot build · Not a validated release</div>
   <p class="lead">An offline-first, browser-based tool for viewing and editing STIG checklists, comparing assessments, and combining asset checklists. This public preview is for usability feedback and controlled testing.</p>
   <section class="warning" aria-label="Experimental release warning">
@@ -31,7 +31,7 @@
     <p><strong>Use synthetic or fully sanitized test files only.</strong> Do not load classified, controlled, sensitive, or actual system assessment data into this public test deployment.</p>
   </section>
   <div class="actions">
-    <a class="btn" href="./stig-studio-v0.7.2.html">Launch experimental preview →</a>
+    <a class="btn" href="./stig-studio-v0.7.3.html">Launch experimental preview →</a>
     <a class="btn secondary" href="https://github.com/david-b-finch/STIG-Studio-Preview/issues/new/choose">Report an issue</a>
   </div>
   <div class="grid">
@@ -41,6 +41,7 @@
         <li>Open synthetic CKLB or CKL files.</li>
         <li>Use Import STIG Reference Archives with the <a href="./fixtures/synthetic-reference.zip" download>synthetic reference ZIP</a> or <a href="./fixtures/synthetic-reference.xml" download>XML</a>, then save the new assessment.</li>
         <li>Change a test rule's status, comments, or finding details.</li>
+        <li>Try Next Not Reviewed and Import Assessment with the comparison reference fixture.</li>
         <li>Save the file and verify the exported data independently.</li>
         <li>Test comparisons, advanced filters, and asset combining.</li>
         <li>Test in Firefox and Chromium-based browsers.</li>
@@ -70,7 +71,7 @@
     </section>
   </div>
   <footer>
-    <p>Version 0.7.2 experimental snapshot. This preview may be replaced or withdrawn. Keep local backups of any test output and verify exported content before using it for further testing.</p>
+    <p>Version 0.7.3 experimental snapshot. This preview may be replaced or withdrawn. Keep local backups of any test output and verify exported content before using it for further testing.</p>
     <p><a href="https://github.com/david-b-finch/STIG-Studio-Preview">Preview repository</a> · <a href="./TESTING.md">Test instructions</a> · <a href="./LICENSE">Evaluation terms</a></p>
   </footer>
 </main>

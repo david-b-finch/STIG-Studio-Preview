@@ -1,6 +1,6 @@
 # Experimental Preview — Testing Guide
 
-**Build:** STIG Studio v0.7.3
+**Build:** STIG Studio v0.7.4
 
 **Status:** Experimental; not validated for operational use.
 
@@ -22,6 +22,30 @@ credentials, classified material, or controlled data to this public project.
 - [ ] Save Filtered CKLB and inspect the exported rule count and metadata.
 - [ ] Combine synthetic inputs; compare result against expected rule inventory.
 - [ ] For ZIP exports, extract externally and validate CRC/contents.
+
+## Bulk editing and report smoke test
+
+- [ ] Open `fixtures/synthetic-preview.cklb` and expand **Selection help**.
+- [ ] Select individual rules, a Shift range, and all filtered rules.
+- [ ] Bulk-edit Status and append/replace Comments or Finding Details; inspect
+      the preview and cancel once before applying.
+- [ ] Hide a selected rule with a filter; verify selected edits/reports exclude it.
+- [ ] Undo a bulk edit and verify its original fields are restored even if filters changed.
+- [ ] Repeat, manually edit one affected field, then undo. The later edit stays.
+- [ ] Save CKLB and reopen; verify assessment values and counts.
+- [ ] Export all/filtered/selected scopes as CSV and printable HTML.
+- [ ] Verify report exports do not clear the CKLB unsaved indicator.
+- [ ] In Excel/LibreOffice, verify CSV columns, Unicode, quoted multiline text,
+      and that formula-like values are treated as text.
+- [ ] Open downloaded HTML offline and inspect Print Preview / Save as PDF:
+      first/last rules, long findings, Unicode, wrapping, and margins.
+- [ ] Open an edited CKLB in STIG Viewer 3, check values and rule inventory,
+      re-export, and reopen in Studio. Record the Viewer version.
+
+Undo has one step per open checklist and no redo. A new effective bulk edit
+replaces it; no-op edits and cancellation retain it. Undo history and selection
+are not saved in CKLB. Reports show base severity; no override editor was added.
+CSV is a spreadsheet report, not an assessment interchange format.
 
 ## Assessment workflow smoke test
 

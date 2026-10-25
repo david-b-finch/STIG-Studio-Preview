@@ -1,4 +1,4 @@
-# STIG Studio v0.7.3 — Experimental Public Preview
+# STIG Studio v0.7.4 — Experimental Public Preview
 
 > **EXPERIMENTAL. NOT FOR OPERATIONAL ASSESSMENTS OR PRODUCTION REPORTING.**
 >
@@ -6,7 +6,7 @@
 > personally identifying, or real system assessment information to public Issues.
 
 This public repository publishes **the current experimental snapshot** of STIG Studio
-v0.7.3 for controlled testing and community feedback. It is independent of the
+v0.7.4 for controlled testing and community feedback. It is independent of the
 main `STIG-Tools` development repository. It is **not** an official DISA, DoD,
 or U.S. Government product or endorsement.
 
@@ -30,7 +30,28 @@ Hosting is provided by GitHub Pages; ordinary access logs may apply.
 6. Repeat with [`fixtures/synthetic-preview-reference.cklb`](fixtures/synthetic-preview-reference.cklb) for comparison behavior.
 7. Report unexpected behavior using a GitHub Issue with **synthetic data only**.
 
-## New in v0.7.3
+## New in v0.7.4
+
+- Select rules individually, with Shift ranges, or with Ctrl/Command-click;
+  bulk-edit Status, Comments, and Finding Details after reviewing the change count.
+- Append, replace, or explicitly clear assessment text. Selected rules hidden by
+  filters are excluded; all-filtered scope includes matching collapsed STIGs.
+- Undo the most recent effective bulk edit per open checklist, keeping later
+  manual edits, reference copies, and assessment imports. Undo applies to the
+  original operation regardless of current filters and requires a CKLB save.
+- Selection help explains range selection, filters, and undo scope.
+- Export all, filtered, or selected rules as CSV or standalone printable HTML
+  through **Save / Export**. Reports include asset and reference information;
+  exporting a report does not mark CKLB changes saved.
+- CSV quotes multiline/Unicode text and prefixes formula-like cells with an
+  apostrophe. HTML escapes imported text and uses print styles without scripts
+  or external resources. Severity override editing was not added.
+- 101 Firefox offline integration tests passed. Additional Firefox checks printed
+  a complete synthetic 13-page PDF and verified screenshot/clean shutdown.
+  Chrome/Edge, Excel/LibreOffice behavior, and Viewer acceptance of generated
+  CKLB remain untested in the development workspace.
+
+## Earlier assessment workflow (v0.7.3)
 
 - **Import Assessment** overlays selected status, findings, comments, and optional
   overrides from CKL/CKLB/JSON onto the current checklist after a preview.
@@ -86,16 +107,16 @@ Do not rely on this build for production or authoritative compliance data.
 
 ## Source preservation
 
-`stig-studio-v0.7.3.html` is preserved **byte-for-byte** from the imported
-v0.7.3 development snapshot. SHA-256:
+`stig-studio-v0.7.4.html` is preserved **byte-for-byte** from the
+v0.7.4 development snapshot. SHA-256:
 
 ```text
-c59a0c4f0f3907551330f5aeac9351e173dc4758476495c74cd275dbf0417938
+ff25b1e90c84b787d8ea55f73fbd6585f33a5541de7b4b74e64f3801cbf416c2
 ```
 
 All explanatory and warning content lives separately in `index.html` and
 supporting documents. Changes made to the development repository do not
-automatically publish here. The earlier 0.7.1 and 0.7.2 HTML snapshots remain unchanged for reference.
+automatically publish here. The earlier 0.7.1, 0.7.2, and 0.7.3 HTML snapshots remain unchanged for reference.
 
 ## Licensing and feedback
 

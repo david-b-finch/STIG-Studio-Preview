@@ -1,6 +1,6 @@
 # Experimental Preview — Testing Guide
 
-**Build:** STIG Studio v0.7.4
+**Build:** STIG Studio v0.7.5; v0.7.4 remains available for comparison.
 
 **Status:** Experimental; not validated for operational use.
 
@@ -9,6 +9,39 @@
 Use only synthetic or fully sanitized CKL/CKLB data. Do not upload or attach
 real assessment files, actual vulnerability results, infrastructure identifiers,
 credentials, classified material, or controlled data to this public project.
+
+## Version comparison and offline testing
+
+- [ ] Use **Open v0.7.5** and **Open previous v0.7.4** on the landing page.
+- [ ] Use each adjacent **Download** button; verify it downloads the named HTML
+      rather than navigating away from the landing page.
+- [ ] Disconnect from the network and open the downloaded HTML directly.
+- [ ] Open synthetic CKLB/reference inputs, edit, save, and reopen offline.
+- [ ] Compare the same synthetic workflow in both versions; record the version.
+
+## Library and working-data recovery (v0.7.5)
+
+- [ ] Open **STIG Library**, add the synthetic reference ZIP or XML, and inspect
+      its STIG metadata and rule count.
+- [ ] Export Library, reopen that `.library.json`, and create an unreviewed
+      checklist. Verify blank findings/comments and separate asset information.
+- [ ] Add the same reference again; verify duplicate handling.
+- [ ] Change working assessment text and wait for **Autosave: Saved**. Reload
+      and verify restored data still needs an explicit CKLB save.
+- [ ] Restart the browser and select a stored session through Autosave if needed.
+- [ ] Verify library changes require Export Library and the library collection
+      is not restored by browser working-data recovery.
+- [ ] Cancel Clear All once, then confirm **Clear All Browser Recovery**. Verify
+      recovery copies are removed, open work/library remain, and autosave pauses.
+- [ ] Re-enable autosave explicitly and verify a new recovery checkpoint.
+- [ ] Try Tabs/Sections and status hotkeys on a focused rule; typing in editors
+      must not trigger a status change. Compare vertically stacked fields.
+
+Browser recovery is profile/origin-specific; hosted and downloaded copies have
+separate storage. Memory-saving behavior and private/managed browser policies
+need user testing. Pending edits may be newer than the last checkpoint. Keep
+explicit file backups. Export Library saves the catalog, and Save CKLB saves an
+assessment; browser autosave does not silently update either file.
 
 ## Quick smoke test
 
@@ -45,7 +78,7 @@ credentials, classified material, or controlled data to this public project.
 Undo has one step per open checklist and no redo. A new effective bulk edit
 replaces it; no-op edits and cancellation retain it. Undo history and selection
 are not saved in CKLB. Reports show base severity; no override editor was added.
-CSV is a spreadsheet report, not an assessment interchange format.
+The report CSV is a spreadsheet report. v0.7.5 additionally offers a separate Viewer CSV exchange format.
 
 ## Assessment workflow smoke test
 

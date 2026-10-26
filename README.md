@@ -1,4 +1,4 @@
-# STIG Studio v0.7.4 — Experimental Public Preview
+# STIG Studio v0.7.5 — Experimental Public Preview
 
 > **EXPERIMENTAL. NOT FOR OPERATIONAL ASSESSMENTS OR PRODUCTION REPORTING.**
 >
@@ -6,7 +6,7 @@
 > personally identifying, or real system assessment information to public Issues.
 
 This public repository publishes **the current experimental snapshot** of STIG Studio
-v0.7.4 for controlled testing and community feedback. It is independent of the
+v0.7.5 for controlled testing and community feedback. It is independent of the
 main `STIG-Tools` development repository. It is **not** an official DISA, DoD,
 or U.S. Government product or endorsement.
 
@@ -16,7 +16,9 @@ After GitHub Pages deployment, visit:
 
 https://david-b-finch.github.io/STIG-Studio-Preview/
 
-The landing page explains the experimental limitations and links to the app.
+The landing page offers adjacent **Open** and **Download** buttons for both
+v0.7.5 and the previous v0.7.4. Download the standalone HTML and open it directly
+in a current browser to test offline. No installation or server is needed.
 The application runs in a browser and has no build process or server-side logic.
 Hosting is provided by GitHub Pages; ordinary access logs may apply.
 
@@ -30,7 +32,38 @@ Hosting is provided by GitHub Pages; ordinary access logs may apply.
 6. Repeat with [`fixtures/synthetic-preview-reference.cklb`](fixtures/synthetic-preview-reference.cklb) for comparison behavior.
 7. Report unexpected behavior using a GitHub Issue with **synthetic data only**.
 
-## New in v0.7.4
+## New in v0.7.5
+
+- A file-based **STIG Library** screen opens/merges/exports `.library.json`
+  catalogs, imports reference ZIP/XML, previews releases, and creates unreviewed
+  single/multi-STIG checklists. Export Library saves catalog changes explicitly.
+- **Browser Autosave & Recovery** checkpoints working assessments locally when
+  storage is available, restores after reload, and offers stored sessions after
+  restart. It excludes the library collection and does not mark CKLB files saved.
+  **Clear All Browser Recovery** removes Studio recovery data and pauses writers,
+  retaining open work, the current library, and downloaded files.
+- Grouped menus, prominent Asset Info, Check-first Tabs/Sections, vertically
+  stacked bounded editors, aligned comparison fields, and focused-rule hotkeys
+  1/N, 2/O, 3/X, and 4/R. The rule-list width and dark palette remain unchanged.
+- STIG revision migration previews, XCCDF scan-result import, complete-STIG
+  building, portable workspaces, Save All ZIP, assessment-import selection/text
+  options, Viewer CSV exchange, and mapped legacy CKL export.
+- 156 offline integration checks passed in each of Firefox 140.17.0 and Chrome
+  156.0.8078.47. Native checks covered input-driven autosave, reload/renamed HTML,
+  browser restart/recovery, and clearing; Chrome also covered freeze/resume and
+  independent tabs. Short-window UI, CSV/ZIP/PDF, LibreOffice, and Viewer 3.8.1's
+  native file handlers were checked. Full Viewer graphical acceptance, natural
+  Memory Saver timing, and power loss remain untested. These are development
+  checks, not interoperability certification or a security audit.
+
+Browser storage is specific to a browser profile/origin. The hosted preview and
+downloaded HTML do not share recovery data. Other browsers, moved folders,
+private mode, and enterprise policies may behave differently. Keep explicit
+CKLB/Workspace backups; unexported library edits are transient.
+
+## Earlier bulk editing and reports (v0.7.4)
+
+Coverage statements in earlier-version sections describe those snapshots.
 
 - Select rules individually, with Shift ranges, or with Ctrl/Command-click;
   bulk-edit Status, Comments, and Finding Details after reviewing the change count.
@@ -107,16 +140,16 @@ Do not rely on this build for production or authoritative compliance data.
 
 ## Source preservation
 
-`stig-studio-v0.7.4.html` is preserved **byte-for-byte** from the
-v0.7.4 development snapshot. SHA-256:
+`stig-studio-v0.7.5.html` is preserved **byte-for-byte** from the
+v0.7.5 development snapshot. SHA-256:
 
 ```text
-ff25b1e90c84b787d8ea55f73fbd6585f33a5541de7b4b74e64f3801cbf416c2
+b3a382d5e1418b3552ead51d10be1d9cc261fbe07a9db329fa4d36ab2e39d865
 ```
 
 All explanatory and warning content lives separately in `index.html` and
 supporting documents. Changes made to the development repository do not
-automatically publish here. The earlier 0.7.1, 0.7.2, and 0.7.3 HTML snapshots remain unchanged for reference.
+automatically publish here. The earlier 0.7.1, 0.7.2, 0.7.3, and 0.7.4 HTML snapshots remain unchanged for reference.
 
 ## Licensing and feedback
 

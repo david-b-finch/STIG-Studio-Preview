@@ -1,4 +1,4 @@
-# STIG Studio v0.7.6 — Experimental Public Preview
+# STIG Studio v0.7.7 — Experimental Public Preview
 
 > **EXPERIMENTAL. NOT FOR OPERATIONAL ASSESSMENTS OR PRODUCTION REPORTING.**
 >
@@ -6,7 +6,7 @@
 > personally identifying, or real system assessment information to public Issues.
 
 This public repository publishes **the current experimental snapshot** of STIG Studio
-v0.7.6 for controlled testing and community feedback. It is independent of the
+v0.7.7 for controlled testing and community feedback. It is independent of the
 main `STIG-Tools` development repository. It is **not** an official DISA, DoD,
 or U.S. Government product or endorsement.
 
@@ -17,7 +17,7 @@ After GitHub Pages deployment, visit:
 https://david-b-finch.github.io/STIG-Studio-Preview/
 
 The landing page offers adjacent **Open** and **Download** buttons for both
-v0.7.6 and the previous v0.7.5. Download the standalone HTML and open it directly
+v0.7.7 and the previous v0.7.6. Download the standalone HTML and open it directly
 in a current browser to test offline. No installation or server is needed.
 The application runs in a browser and has no build process or server-side logic.
 Hosting is provided by GitHub Pages; ordinary access logs may apply.
@@ -32,7 +32,25 @@ Hosting is provided by GitHub Pages; ordinary access logs may apply.
 6. Repeat with [`fixtures/synthetic-preview-reference.cklb`](fixtures/synthetic-preview-reference.cklb) for comparison behavior.
 7. Report unexpected behavior using a GitHub Issue with **synthetic data only**.
 
-## New in v0.7.6
+## New in v0.7.7
+
+- **Advanced Filters** opens the existing drawer directly above the rule list,
+  including when Quick Filters is collapsed.
+- During comparison, **Bulk Edit** Comments and Finding Details offer **Copy
+  from Reference (blank working fields only)** and an explicit replacement
+  option. Use the existing selected/filtered scopes and No Comments / No Finding
+  Details filters, preview, cancellation and Undo Bulk Edit.
+- Empty source fields are skipped; the blank-only choice protects current notes.
+  Reference statuses are never copied by these actions. Leave Status at Keep
+  current status to preserve the current assessment decision.
+- Matching uses unambiguous STIG-scoped rule identifiers. Title-only, duplicate
+  and one-to-many mappings are skipped. Review old rationale against current
+  instructions before relying on it.
+- 185 integration checks passed in each of Chrome and Firefox, plus three
+  packaging checks and three focused offline UI checks per browser. See
+  [validation scope](VALIDATION.md) for executed checks and limitations.
+
+## Earlier stabilization (v0.7.6)
 
 - Focused source refactoring, with one standalone offline HTML for users.
 - Asset-combiner rules link to their actual containing STIG UUID; legacy
@@ -175,16 +193,16 @@ Firefox/Chrome offline checks cover synthetic and locally supplied inputs. Actua
 
 ## Source preservation
 
-`stig-studio-v0.7.6.html` is preserved **byte-for-byte** from the
-v0.7.6 development snapshot. SHA-256:
+`stig-studio-v0.7.7.html` is preserved **byte-for-byte** from the
+v0.7.7 development snapshot. SHA-256:
 
 ```text
-7903c73e4622dde6ec767dd770e8e7d071384576a54e38d024f290a6eb61da33
+35770efab43dadfe0d69a86a8c3d39074914ad8e4df3f554a3a4e0cef90fa9a8
 ```
 
 All explanatory and warning content lives separately in `index.html` and
 supporting documents. Changes made to the development repository do not
-automatically publish here. The earlier 0.7.1, 0.7.2, 0.7.3, 0.7.4, and 0.7.5 HTML snapshots remain unchanged for reference.
+automatically publish here. The earlier 0.7.1, 0.7.2, 0.7.3, 0.7.4, 0.7.5, and 0.7.6 HTML snapshots remain unchanged for reference.
 
 ## Licensing and feedback
 

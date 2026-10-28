@@ -1,6 +1,6 @@
 # Experimental Preview — Testing Guide
 
-**Build:** STIG Studio v0.7.6; v0.7.5 remains available for comparison.
+**Build:** STIG Studio v0.7.7; v0.7.6 remains available for comparison.
 
 **Status:** Experimental; not validated for operational use.
 
@@ -12,12 +12,38 @@ credentials, classified material, or controlled data to this public project.
 
 ## Version comparison and offline testing
 
-- [ ] Use **Open v0.7.6** and **Open previous v0.7.5** on the landing page.
+- [ ] Use **Open v0.7.7** and **Open previous v0.7.6** on the landing page.
 - [ ] Use each adjacent **Download** button; verify it downloads the named HTML
       rather than navigating away from the landing page.
 - [ ] Disconnect from the network and open the downloaded HTML directly.
 - [ ] Open synthetic CKLB/reference inputs, edit, save, and reopen offline.
 - [ ] Compare the same synthetic workflow in both versions; record the version.
+
+## New in 0.7.7: carry previous notes forward
+
+- [ ] Open demo **03 Firefox V6R9** as the working checklist and compare it with
+      demo **01 Firefox V6R4** as Reference. Verify the current/new release stays
+      on the working side.
+- [ ] Open **Advanced Filters** directly above the rule list. Try **No Comments**
+      or **No Finding Details**; close the drawer and verify the scope.
+- [ ] Open **Bulk Edit**, choose **All rules matching current filters** (or select
+      particular rules and choose **Selected rules matching current filters**).
+- [ ] For Comments and/or Finding Details, choose **Copy from Reference (blank
+      working fields only)**. Leave Status at **Keep current status**.
+- [ ] Inspect the preview and cancel once; verify nothing changed.
+- [ ] Apply; matched blank fields receive prior notes, current statuses remain
+      Not Reviewed, and unmatched/ambiguous rules are skipped.
+- [ ] Clear filters if the newly filled rules disappear. Save CKLB and reopen it.
+- [ ] Test an already-filled current note: blank-only keeps it. The explicit
+      replace-existing choice replaces it only with nonempty Reference text.
+- [ ] Use **Undo Bulk Edit** before closing the checklist; original fields return,
+      while subsequent manual edits to an affected field are kept.
+- [ ] Try Advanced Filters while Quick Filters is collapsed. Both controls must
+      remain accessible and inside the navigator.
+
+Copy actions do not adopt old assessment statuses or update reference content.
+A prior rationale may need revision for the current instructions. Empty source
+text never clears current text through these copy modes.
 
 ## New demo and reference downloads
 

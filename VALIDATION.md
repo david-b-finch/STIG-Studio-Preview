@@ -1,4 +1,41 @@
-# 0.7.6 validation scope
+# 0.7.7 validation scope
+
+Validation date: 2026-10-27.
+
+- 185 offline integration checks passed in both Chrome 156.0.8078.47 and
+  Firefox 140.17.0 using the standalone HTML through `file://`. They include ten
+  new reference-text/shortcut cases and existing import, export, comparison,
+  filter, bulk/undo, library, recovery, migration, scan and combiner coverage.
+- Copy cases cover each text field independently, blank-only/replacement modes,
+  empty-source skipping, unchanged current decisions, exact text preservation,
+  selected/filtered and assessment-gap scopes, ambiguity, cancellation, stale
+  previews, undo, and CKLB save/reimport. The Firefox demo pair exercises copying
+  across releases. Advanced Filters access and focus are checked in inline and
+  compact quick-filter layouts.
+- All three assembly/packaging checks passed. The downloadable HTML matches the
+  development artifact byte-for-byte; README.md records its SHA-256.
+- Three focused native UI checks passed per browser: navigator/dialog/footer
+  containment at 1024×600 and 1280×720 requested window sizes, cancel without
+  mutation, and UI apply/undo preserving current notes, status and source data.
+  Firefox content viewports were 1024×514 and 1280×634; Chrome content viewports
+  matched the requested dimensions. Screenshots were inspected.
+- Previous native Viewer outputs were reused by three integration cases; Viewer
+  itself was not rerun for 0.7.7. No fresh native restart/discard recovery test,
+  Edge test, or manual assessor acceptance was performed for this version.
+
+Preview packaging passed in Chrome using a loopback-only static server:
+landing-page layout at 1280/600 pixels, all local links, adjacent Open/Download
+controls for 0.7.7 and 0.7.6, both HTML downloads matching source bytes, all 22
+linked demo/reference downloads, and downloaded 0.7.7 startup/Library access via
+`file://` with networking offline. Earlier snapshots and data downloads remain
+unchanged. This validates the prepared site; deployment is a separate GitHub
+Pages operation after the preview commit is pushed.
+
+The existing autosave, CKLB serialization and one-step Bulk Edit undo paths are
+reused. No new file format, external library or network dependency was added.
+Copied rationale/evidence still needs review against current instructions.
+
+## Earlier 0.7.6 validation scope
 
 - 175 offline integration checks passed in both Chrome 156.0.8078.47 and
   Firefox 140.17.0, including reference/checklist imports, saves, comparison,

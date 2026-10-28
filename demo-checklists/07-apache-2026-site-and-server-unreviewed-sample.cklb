@@ -1,0 +1,4216 @@
+{
+  "title": "DEMO ONLY — Apache 2026 Site and Server unreviewed reference samples — PARTIAL STIG",
+  "id": "aac404ad-df7a-5bc2-a383-75d193e13198",
+  "stigs": [
+    {
+      "stig_name": "Apache Server 2.4 UNIX Server Security Technical Implementation Guide",
+      "display_name": "Apache Server 2.4 UNIX Server",
+      "stig_id": "Apache_Server_2-4_UNIX_Server_STIG",
+      "version": "3",
+      "release_info": "Release: 3 Benchmark Date: 01 Jul 2026",
+      "uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+      "reference_identifier": "3996",
+      "rules": [
+        {
+          "group_id_src": "V-214228",
+          "group_id": "V-214228",
+          "group_tree": [
+            {
+              "id": "V-214228",
+              "title": "SRG-APP-000001-WSR-000001",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must limit the number of allowed simultaneous session requests.",
+          "rule_id_src": "SV-214228r960735_rule",
+          "rule_id": "SV-214228r960735",
+          "rule_version": "AS24-U1-000010",
+          "rule_title": "The Apache web server must limit the number of allowed simultaneous session requests.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Apache web server management includes the ability to control the number of users and user sessions that utilize an Apache web server. Limiting the number of allowed users and sessions per user is helpful in limiting risks related to several types of denial-of-service (DOS) attacks.\n\nAlthough there is some latitude concerning the settings, they should follow DoD-recommended values and be configurable to allow for future DoD direction. While the DoD will specify recommended values, the values can be adjusted to accommodate the operational requirements of a given system.",
+          "check_content": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used.\n\nSearch for the directives \"KeepAlive\" and \"MaxKeepAliveRequests\" in the \"httpd.conf\" file:\n\n# cat /<path_to_file>/httpd.conf | grep -i \"keepalive\"\n\nKeepAlive On\nMaxKeepAliveRequests 100\n\nIf the value of \"KeepAlive\" is set to \"off\" or does not exist, this is a finding.\n\nIf the value of \"MaxKeepAliveRequests\" is set to a value less than \"100\" or does not exist, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used.  \n\nSet the \"KeepAlive\" directive to a value of \"on\"; add the directive if it does not exist.\n\nSet the \"MaxKeepAliveRequests\" directive to a value of \"100\" or greater; add the directive if it does not exist.\n\nRestart Apache: apachectl restart",
+          "ccis": [
+            "CCI-000054"
+          ],
+          "legacy_ids": [
+            "SV-102685",
+            "V-92597"
+          ],
+          "srg_id": "SRG-APP-000001-WSR-000001",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "75a32d84-be52-5e6f-a8ae-c6d4425a085d",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214228r960735_rule",
+            "check_system": "C-15442r881402_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214228"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102685"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92597"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000054"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214229",
+          "group_id": "V-214229",
+          "group_tree": [
+            {
+              "id": "V-214229",
+              "title": "SRG-APP-000001-WSR-000002",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must perform server-side session management.",
+          "rule_id_src": "SV-214229r960735_rule",
+          "rule_id": "SV-214229r960735",
+          "rule_version": "AS24-U1-000020",
+          "rule_title": "The Apache web server must perform server-side session management.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Session management is the practice of protecting the bulk of the user authorization and identity information. This data can be stored on the client system or on the server.\n\nWhen the session information is stored on the client, the session ID, along with the user authorization and identity information, is sent along with each client request and is stored in a cookie, embedded in the uniform resource locator (URL), or placed in a hidden field on the displayed form. Each of these offers advantages and disadvantages. The biggest disadvantage to all three is the possibility of the hijacking of a session along with all of the user's credentials.\n\nWhen the user authorization and identity information is stored on the server in a protected and encrypted database, the communication between the client and Apache web server will only send the session identifier, and the server can then retrieve user credentials for the session when needed. If, during transmission, the session were to be hijacked, the user's credentials would not be compromised.",
+          "check_content": "Issue the following command:\nhttpd -M |grep -E 'session_module|usertrack'\n\nExpected output:\nusertrack_module (shared)\nsession_module (shared)\n\nIf results do not return both \"usertrack_module (shared)\" and \"session_module (shared)\", this is a finding.\n\nAlternatively, determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used.  \n\nSearch for the \"session_module\" and \"usertrack_module\" directives:\n\n# cat /<path_to_file>/httpd.conf | grep -i \"session_module\"\n# cat /<path_to_file>/httpd.conf | grep -i \"usertrack_module\"\nIf \"session_module\" and \"usertrack_module\" are not enabled or do not exist, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "If the modules are not installed, install any missing packages.\n\nAdd the following lines to the \"httpd.conf\" file:\n\nLoadModule usertrack_module modules/mod_usertrack.so\n\nLoadModule session_module modules/mod_session.so\n\nAdditional documentation can be found at:\n\nhttps://httpd.apache.org/docs/2.4/mod/mod_usertrack.html\n\nhttps://httpd.apache.org/docs/2.4/mod/mod_session.html\n\nRestart Apache: apachectl restart",
+          "ccis": [
+            "CCI-000054"
+          ],
+          "legacy_ids": [
+            "SV-102687",
+            "V-92599"
+          ],
+          "srg_id": "SRG-APP-000001-WSR-000002",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "0cc87729-c23c-5f78-a96c-f2b9fc7446a6",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214229r960735_rule",
+            "check_system": "C-15443r881405_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214229"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102687"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92599"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000054"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214230",
+          "group_id": "V-214230",
+          "group_tree": [
+            {
+              "id": "V-214230",
+              "title": "SRG-APP-000014-WSR-000006",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must use cryptography to protect the integrity of remote sessions.",
+          "rule_id_src": "SV-214230r1210990_rule",
+          "rule_id": "SV-214230r1210990",
+          "rule_version": "AS24-U1-000030",
+          "rule_title": "The Apache web server must use cryptography to protect the integrity of remote sessions.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Data exchanged between the user and the Apache web server can range from static display data to credentials used to log on to the hosted application. Even when data appears to be static, the nondisplayed logic in a web page may expose business logic or trusted system relationships. The integrity of all the data being exchanged between the user and the Apache web server must always be trusted. To protect the integrity and trust, encryption methods should be used to protect the complete communication session.\n\nSatisfies: SRG-APP-000014-WSR-000006, SRG-APP-000015-WSR-000014, SRG-APP-000033-WSR-000169, SRG-APP-000172-WSR-000104, SRG-APP-000179-WSR-000110, SRG-APP-000179-WSR-000111, SRG-APP-000224-WSR-000139, SRG-APP-000427-WSR-000186, SRG-APP-000439-WSR-000151, SRG-APP-000439-WSR-000152, SRG-APP-000439-WSR-000153, SRG-APP-000442-WSR-000182",
+          "check_content": "Verify the \"ssl module\" module is loaded:\n\n# httpd -M | grep -i ssl_module\nOutput:  ssl_module (shared) \n\nIf the \"ssl_module\" is not found, this is a finding.\n\nDetermine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used.\n\nSearch for the directive \"SSLProtocol\" in the \"httpd.conf\" file: \n\n# cat /<path_to_file>/httpd.conf | grep -i \"SSLProtocol\" \n\nIf the \"SSLProtocol\" directive is missing or does not look like the following, this is a finding: \n\nSSLProtocol -SSLv2 -SSLv3 -TLSv1 +TLSv1.2 +TLSv1.3\n\nIf the directive does not exist, or exists but does not contain \"-SSLv2 -SSLv3 -TLSv1 +TLSv1.2 +TLSv1.3\", this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "# cat /etc/httpd/conf.d/ssl.conf | grep \"SSLProtocol\"\n\nEnsure the \"SSLProtocol\" is added to the ssl.conf file and looks like the following:\n\nSSLProtocol -SSLv2 -SSLv3 -TLSv1 +TLSv1.2 +TLSv1.3\n\nRestart Apache: apachectl restart",
+          "ccis": [
+            "CCI-000068",
+            "CCI-000197",
+            "CCI-000213",
+            "CCI-000803",
+            "CCI-001188",
+            "CCI-001453",
+            "CCI-002418",
+            "CCI-002422",
+            "CCI-002470"
+          ],
+          "legacy_ids": [
+            "V-92601",
+            "SV-102689"
+          ],
+          "srg_id": "SRG-APP-000014-WSR-000006",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "04d11560-f91e-5feb-abac-1b9c88c76521",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214230r1210990_rule",
+            "check_system": "C-15444r1210988_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214230"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92601"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102689"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000068"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000197"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000213"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000803"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001188"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001453"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-002418"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-002422"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-002470"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214231",
+          "group_id": "V-214231",
+          "group_tree": [
+            {
+              "id": "V-214231",
+              "title": "SRG-APP-000516-WSR-000174",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must have system logging enabled.",
+          "rule_id_src": "SV-214231r961863_rule",
+          "rule_id": "SV-214231r961863",
+          "rule_version": "AS24-U1-000065",
+          "rule_title": "The Apache web server must have system logging enabled.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "The server error logs are invaluable because they can also be used to identify potential problems and enable proactive remediation. Log data can reveal anomalous behavior such as “not found” or “unauthorized” errors that may be an evidence of attack attempts. Failure to enable error logging can significantly reduce the ability of Web Administrators to detect or remediate problems. The CustomLog directive specifies the log file, syslog facility, or piped logging utility.",
+          "check_content": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used.\n\nSearch for the directive \"CustomLog\" in the \"httpd.conf\" file:\n\n# cat /<path_to_file>/httpd.conf | grep -i \"CustomLog\"\n\nIf the \"CustomLog\" directive is missing, this is a finding:\n\nAn example CustomLog directive would be as follows:\nCustomLog \"logs/access_log\" common or CustomLog “log/access_log” combined\n(May also be \"Logs/access_log\")",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Edit the \"httpd.conf\" file and enter the name, path and level for the CustomLog.",
+          "ccis": [
+            "CCI-000366"
+          ],
+          "legacy_ids": [
+            "SV-102695",
+            "V-92607"
+          ],
+          "srg_id": "SRG-APP-000516-WSR-000174",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "ba0e4b6f-fcce-5b16-aee4-3fcf1e2fa340",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214231r961863_rule",
+            "check_system": "C-15445r881409_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214231"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102695"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92607"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000366"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214232",
+          "group_id": "V-214232",
+          "group_tree": [
+            {
+              "id": "V-214232",
+              "title": "SRG-APP-000089-WSR-000047",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must generate, at a minimum, log records for system startup and shutdown, system access, and system authentication events.",
+          "rule_id_src": "SV-214232r960879_rule",
+          "rule_id": "SV-214232r960879",
+          "rule_version": "AS24-U1-000070",
+          "rule_title": "The Apache web server must generate, at a minimum, log records for system startup and shutdown, system access, and system authentication events.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Log records can be generated from various components within the Apache web server (e.g., httpd, plug-ins to external backends, etc.). From a web server perspective, certain specific Apache web server functionalities may be logged as well. The Apache web server must allow the definition of what events are to be logged. As conditions change, the number and types of events to be logged may change, and the Apache web server must be able to facilitate these changes.\n\nThe minimum list of logged events should be those pertaining to system startup and shutdown, system access, and system authentication events. If these events are not logged at a minimum, any type of forensic investigation would be missing pertinent information needed to replay what occurred.\n\n\nSatisfies: SRG-APP-000089-WSR-000047, SRG-APP-000092-WSR-000055, SRG-APP-000095-WSR-000056, SRG-APP-000096-WSR-000057, SRG-APP-000097-WSR-000058, SRG-APP-000098-WSR-000059, SRG-APP-000099-WSR-000061, SRG-APP-000100-WSR-000064",
+          "check_content": "Verify the Log Configuration Module is loaded:\n# httpd -M | grep -i log_config_module\nOutput:  log_config_module (shared)\n\nIf the \"log_config_module\" is not enabled, this is a finding.\n\nDetermine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used.  \n\nSearch for the directive \"LogFormat\" in the \"httpd.conf\" file:\n\n# cat /<path_to_file>/httpd.conf | grep -i \"LogFormat\"\n\nIf the \"LogFormat\" directive is missing, this is a finding:\n\nAn example is:\nLogFormat \"%a %A %h %H %l %m %s %t %u %U \\\"%{Referer}i\\\" \" common",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nUncomment the \"log_config_module\" module line.\n\nConfigure the \"LogFormat\" in the \"httpd.conf\" file to look like the following:\n\nLogFormat \"%a %A %h %H %l %m %s %t %u %U \\\"%{Referer}i\\\" \" common\n\nRestart Apache: apachectl restart\n\nNote: The log format could be using different variables based on the environment; however it should be verified to ensure it is producing the same end result of logged elements.  \n\nThe logging elements required breakdown as follows:\n%a       remote IP address\n%A       local IP address\n%h       IP address of requesting client\n%H      the request protocol\n%l        user ID of the requesting client\n%m      request method\n%s        status\n%t        time the request was received\n%u       user ID of the remote user\n%U       URL path requested",
+          "ccis": [
+            "CCI-000130",
+            "CCI-000131",
+            "CCI-000132",
+            "CCI-000133",
+            "CCI-000134",
+            "CCI-000169",
+            "CCI-001464",
+            "CCI-001487"
+          ],
+          "legacy_ids": [
+            "SV-102697",
+            "V-92609"
+          ],
+          "srg_id": "SRG-APP-000089-WSR-000047",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "29b787cc-8523-53e3-afd3-835cd6c1b901",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214232r960879_rule",
+            "check_system": "C-15446r881411_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214232"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102697"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92609"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000130"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000131"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000132"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000133"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000134"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000169"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001464"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001487"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214233",
+          "group_id": "V-214233",
+          "group_tree": [
+            {
+              "id": "V-214233",
+              "title": "SRG-APP-000098-WSR-000060",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "An Apache web server, behind a load balancer or proxy server, must produce log records containing the client IP information as the source and destination and not the load balancer or proxy IP information with each event.",
+          "rule_id_src": "SV-214233r960900_rule",
+          "rule_id": "SV-214233r960900",
+          "rule_version": "AS24-U1-000130",
+          "rule_title": "An Apache web server, behind a load balancer or proxy server, must produce log records containing the client IP information as the source and destination and not the load balancer or proxy IP information with each event.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Apache web server logging capability is critical for accurate forensic analysis. Without sufficient and accurate information, a correct replay of the events cannot be determined.\n\nAscertaining the correct source of the events (e.g., source IP) is important during forensic analysis. Correctly determining the source of events will add information to the overall reconstruction of the loggable event. By determining the source of the event correctly, analysis of the enterprise can be undertaken to determine if events tied to the source occurred in other areas within the enterprise.\n\nA web server behind a load balancer or proxy server, when not configured correctly, will record the load balancer or proxy server as the source of every loggable event. When looking at the information forensically, this information is not helpful in the investigation of events. The web server must record with each event the client source of the event.",
+          "check_content": "If Apache server is not behind a load balancer or proxy server, this check is Not Applicable.\n\nInterview the System Administrator to review the configuration of the Apache web server architecture and determine if inbound web traffic is passed through a proxy.\n\nIf the Apache web server is receiving inbound web traffic through a proxy, the audit logs must be reviewed to determine if correct source information is being passed through by the proxy server.\n\nDetermine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file:\n\n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used. \n\nReview the location of the log files.\n\nWhen the log file is displayed, review the source IP information in the log entries and verify the entries do not reflect the IP address of the proxy server.\nIf the log entries in the log file(s) reflect the IP address of the client in addition to the proxy address, this is not a finding.\nIf the log entries in the log file(s) reflect the IP address of the proxy server as the source, this is a finding.\n\nIf logs containing source/destination IPs can be obtained at the load balancer/proxy server, this is not a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Access the proxy server through which inbound web traffic is passed and configure settings to pass web traffic to the Apache web server transparently.\n\nRefer to https://httpd.apache.org/docs/2.4/mod/mod_remoteip.html for additional information on logging options based on your proxy/load balancing setup.",
+          "ccis": [
+            "CCI-000133"
+          ],
+          "legacy_ids": [
+            "SV-102709",
+            "V-92621"
+          ],
+          "srg_id": "SRG-APP-000098-WSR-000060",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "ce287894-6acb-59ab-abe8-105cc9f5f579",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214233r960900_rule",
+            "check_system": "C-15447r881414_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214233"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102709"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92621"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000133"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214238",
+          "group_id": "V-214238",
+          "group_tree": [
+            {
+              "id": "V-214238",
+              "title": "SRG-APP-000131-WSR-000073",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "Expansion modules must be fully reviewed, tested, and signed before they can exist on a production Apache web server.",
+          "rule_id_src": "SV-214238r1212181_rule",
+          "rule_id": "SV-214238r1212181",
+          "rule_version": "AS24-U1-000230",
+          "rule_title": "Expansion modules must be fully reviewed, tested, and signed before they can exist on a production Apache web server.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "In the case of a production web server, areas for content development and testing will not exist, as this type of content is only permissible on a development website. The process of developing on a functional production website entails a degree of trial and error and repeated testing. This process is often accomplished in an environment where debugging, sequencing, and formatting of content are the main goals. The opportunity for a malicious user to obtain files that reveal business logic and logon schemes is high in this situation. The existence of such immature content on a web server represents a significant security risk that is totally avoidable.\n\nThe web server must enforce, internally or through an external utility, the signing of modules before they are implemented into a production environment. By signing modules, the author guarantees that the module has been reviewed and tested before production implementation.",
+          "check_content": "Enter the following command:\n\n\"httpd -M\"\n\nThis will provide a list of the loaded modules. Validate that all displayed modules are required for operation.\n\nIf any module is not required for operation, this is a finding.\n\nNote: The following modules are needed for basic web function and do not need to be reviewed:\n\ncore_module\nhttp_module\nso_module\nmpm_prefork_module\n\nFor a complete list of signed Apache modules, review https://httpd.apache.org/docs/2.4/mod/.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Remove any unsigned modules and any modules that are not required for operation.",
+          "ccis": [
+            "CCI-003992",
+            "CCI-001749"
+          ],
+          "legacy_ids": [
+            "SV-102725",
+            "V-92637"
+          ],
+          "srg_id": "SRG-APP-000131-WSR-000073",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "42d01d4c-710f-5cab-a44e-9158a68daff1",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214238r1212181_rule",
+            "check_system": "C-15452r1212180_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214238"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102725"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92637"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-003992"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001749"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214242",
+          "group_id": "V-214242",
+          "group_tree": [
+            {
+              "id": "V-214242",
+              "title": "SRG-APP-000141-WSR-000077",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must provide install options to exclude the installation of documentation, sample code, example applications, and tutorials.",
+          "rule_id_src": "SV-214242r960963_rule",
+          "rule_id": "SV-214242r960963",
+          "rule_version": "AS24-U1-000270",
+          "rule_title": "The Apache web server must provide install options to exclude the installation of documentation, sample code, example applications, and tutorials.",
+          "severity": "high",
+          "weight": "10.0",
+          "discussion": "Apache web server documentation, sample code, example applications, and tutorials may be an exploitable threat to an Apache web server because this type of code has not been evaluated and approved. A production Apache web server must only contain components that are operationally necessary (e.g., compiled code, scripts, web content, etc.).\n\nAny documentation, sample code, example applications, and tutorials must be removed from a production Apache web server. To ensure that the documentation and code are not installed or are uninstalled completely, the Apache web server must offer an option as part of the installation process to exclude these packages or to uninstall the packages if necessary.\n\nSatisfies: SRG-APP-000141-WSR-000077, SRG-APP-000141-WSR-000080",
+          "check_content": "Verify the document root directory and the configuration files do not provide for default index.html or welcome page.\n\nVerify the Apache User Manual content is not installed by checking the configuration files for manual location directives.\n\nVerify the Apache configuration files do not have the Server Status handler configured.\n\nVerify the Server Information handler is not configured.\n\nVerify that any other handler configurations such as perl-status are not enabled.\n\nIf any of these are present, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Server_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Review all pre-installed content and remove content that is not required. In particular, look for the unnecessary content that may be found in the document root directory, a configuration directory such as conf/extra directory, or as a UNIX/Linux package.\n\nRemove the default index.html or welcome page if it is a separate package. If the default welcome page is part of the main Apache httpd package as it is on Red Hat Linux, then comment out the configuration as shown below. Removing a file such as \"welcome.conf\" is not recommended as it may be replaced if the package is updated.\n\n#\n# This configuration file enables the default \"Welcome\"\n# page if there is no default index page present for\n# the root URL. To disable the Welcome page, comment\n# out all the lines below.\n#\n##<LocationMatch \"^/+$\">\n## Options -Indexes\n## ErrorDocument 403 /error/noindex.html\n##</LocationMatch>\n\nRemove the Apache User Manual content or comment out configurations referencing the manual.\n\nExample:\n\n# yum erase httpd-manual\n\nRemove or comment out any Server Status handler configuration:\n\n#\n# Allow server status reports generated by mod_status,\n# with the URL of http://servername/server-status\n# Change the \".example.com\" to match your domain to enable.\n#\n##<Location /server-status>\n## SetHandler server-status\n## Order deny,allow\n## Deny from all\n## Allow from .example.com\n##</Location>\n\nRemove or comment out any Server Information handler configuration:\n\n#\n# Allow remote server configuration reports, with the URL of\n# http://servername/server-info (requires that mod_info.c be loaded).\n# Change the \".example.com\" to match your domain to enable.\n#\n##<Location /server-info>\n## SetHandler server-info\n## Order deny,allow\n## Deny from all\n## Allow from .example.com\n##</Location>\n\nRemove or comment out any other handler configuration such as perl-status:\n\n# This will allow remote server configuration reports, with the URL of\n# http://servername/perl-status\n# Change the \".example.com\" to match your domain to enable.\n#\n##<Location /perl-status>\n## SetHandler perl-script\n## PerlResponseHandler Apache2::Status\n## Order deny,allow\n## Deny from all\n## Allow from .example.com\n##</Location>\n\nThe default source build provides extra content available in the <'INSTALLED PATH'>/conf/extra/ directory, but the configuration of most of the extra content is commented out by default. In particular, the inclusion of conf/extra/proxyhtml.conf is not commented out in \"httpd.conf\":\n\n# Server-pool management (MPM specific)\n#Include conf/extra/httpd-mpm.conf\n# Multi-language error messages\n#Include conf/extra/httpd-multilang-errordoc.conf\n# Fancy directory listings\n#Include conf/extra/httpd-autoindex.conf\n# Language settings\n#Include conf/extra/httpd-languages.conf\n# User home directories\n#Include conf/extra/httpd-userdir.conf\n# Real-time info on requests and configuration\n#Include conf/extra/httpd-info.conf\n# Virtual hosts\n#Include conf/extra/httpd-vhosts.conf\n# Local access to the Apache HTTP Server Manual\n#Include conf/extra/httpd-manual.conf\n# Distributed authoring and versioning (WebDAV)\n#Include conf/extra/httpd-dav.conf\n# Various default settings\n#Include conf/extra/httpd-default.conf\n# Configure mod_proxy_html to understand HTML4/XHTML1\n<IfModule proxy_html_module>\nInclude conf/extra/proxy-html.conf\n</IfModule>\n# Secure (SSL/TLS) connections\n#Include conf/extra/httpd-ssl.conf\n\nFor applications developed in-house, ensure that development artifacts (sample data and scripts; unused libraries, components, debug code; or tools) are not included in the deployed software or accessible in the production environment.",
+          "ccis": [
+            "CCI-000381"
+          ],
+          "legacy_ids": [
+            "SV-102733",
+            "V-92645"
+          ],
+          "srg_id": "SRG-APP-000141-WSR-000077",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3996",
+          "uuid": "a12d13af-4250-5c3e-ad89-559f605373c8",
+          "stig_uuid": "29e8c3e7-c0b9-570e-a50c-efe3ebdf1100",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+            "rule_id": "SV-214242r960963_rule",
+            "check_system": "C-15456r622509_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Server"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3996"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX ServerDISADPMS TargetApache Server 2.4 UNIX Server3996"
+              }
+            ],
+            "group_ids": [
+              "V-214242"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102733"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92645"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000381"
+              }
+            ]
+          }
+        }
+      ],
+      "size": 8,
+      "xccdf_source": {
+        "benchmark_id": "Apache_Server_2-4_UNIX_Server_STIG",
+        "namespace": "http://checklists.nist.gov/xccdf/1.1",
+        "file_name": "U_Apache_Server_2-4_Unix_Server_V3R3_Manual_STIG/U_Apache_Server_2-4_UNIX_Server_STIG_V3R3_Manual-xccdf.xml",
+        "profiles": [
+          {
+            "id": "MAC-1_Classified",
+            "title": "I - Mission Critical Classified",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-1_Public",
+            "title": "I - Mission Critical Public",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-1_Sensitive",
+            "title": "I - Mission Critical Sensitive",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-2_Classified",
+            "title": "II - Mission Support Classified",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-2_Public",
+            "title": "II - Mission Support Public",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-2_Sensitive",
+            "title": "II - Mission Support Sensitive",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-3_Classified",
+            "title": "III - Administrative Classified",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-3_Public",
+            "title": "III - Administrative Public",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-3_Sensitive",
+            "title": "III - Administrative Sensitive",
+            "selections": [
+              {
+                "idref": "V-214228",
+                "selected": true
+              },
+              {
+                "idref": "V-214229",
+                "selected": true
+              },
+              {
+                "idref": "V-214230",
+                "selected": true
+              },
+              {
+                "idref": "V-214231",
+                "selected": true
+              },
+              {
+                "idref": "V-214232",
+                "selected": true
+              },
+              {
+                "idref": "V-214233",
+                "selected": true
+              },
+              {
+                "idref": "V-214234",
+                "selected": true
+              },
+              {
+                "idref": "V-214235",
+                "selected": true
+              },
+              {
+                "idref": "V-214236",
+                "selected": true
+              },
+              {
+                "idref": "V-214237",
+                "selected": true
+              },
+              {
+                "idref": "V-214238",
+                "selected": true
+              },
+              {
+                "idref": "V-214239",
+                "selected": true
+              },
+              {
+                "idref": "V-214240",
+                "selected": true
+              },
+              {
+                "idref": "V-214241",
+                "selected": true
+              },
+              {
+                "idref": "V-214242",
+                "selected": true
+              },
+              {
+                "idref": "V-214243",
+                "selected": true
+              },
+              {
+                "idref": "V-214244",
+                "selected": true
+              },
+              {
+                "idref": "V-214245",
+                "selected": true
+              },
+              {
+                "idref": "V-214246",
+                "selected": true
+              },
+              {
+                "idref": "V-214247",
+                "selected": true
+              },
+              {
+                "idref": "V-214248",
+                "selected": true
+              },
+              {
+                "idref": "V-214249",
+                "selected": true
+              },
+              {
+                "idref": "V-214250",
+                "selected": true
+              },
+              {
+                "idref": "V-214251",
+                "selected": true
+              },
+              {
+                "idref": "V-214252",
+                "selected": true
+              },
+              {
+                "idref": "V-214253",
+                "selected": true
+              },
+              {
+                "idref": "V-214254",
+                "selected": true
+              },
+              {
+                "idref": "V-214255",
+                "selected": true
+              },
+              {
+                "idref": "V-214256",
+                "selected": true
+              },
+              {
+                "idref": "V-214257",
+                "selected": true
+              },
+              {
+                "idref": "V-214258",
+                "selected": true
+              },
+              {
+                "idref": "V-214259",
+                "selected": true
+              },
+              {
+                "idref": "V-214260",
+                "selected": true
+              },
+              {
+                "idref": "V-214261",
+                "selected": true
+              },
+              {
+                "idref": "V-214262",
+                "selected": true
+              },
+              {
+                "idref": "V-214263",
+                "selected": true
+              },
+              {
+                "idref": "V-214264",
+                "selected": true
+              },
+              {
+                "idref": "V-214265",
+                "selected": true
+              },
+              {
+                "idref": "V-214267",
+                "selected": true
+              },
+              {
+                "idref": "V-214268",
+                "selected": true
+              },
+              {
+                "idref": "V-214269",
+                "selected": true
+              },
+              {
+                "idref": "V-214270",
+                "selected": true
+              },
+              {
+                "idref": "V-214271",
+                "selected": true
+              },
+              {
+                "idref": "V-214273",
+                "selected": true
+              },
+              {
+                "idref": "V-214274",
+                "selected": true
+              }
+            ]
+          }
+        ],
+        "selection_scope": "all_default_rules",
+        "references": [
+          {
+            "href": "https://cyber.mil",
+            "fields": [
+              {
+                "namespace": "http://purl.org/dc/elements/1.1/",
+                "name": "publisher",
+                "value": "DISA"
+              },
+              {
+                "namespace": "http://purl.org/dc/elements/1.1/",
+                "name": "source",
+                "value": "STIG.DOD.MIL"
+              }
+            ],
+            "text": "DISASTIG.DOD.MIL"
+          }
+        ]
+      },
+      "studio_demo": {
+        "synthetic_assessment": true,
+        "partial_reference": true,
+        "original_rule_count": 45,
+        "included_rule_count": 8,
+        "source_file": "U_Apache_Server_2-4_Unix_Y26M07_STIG.zip",
+        "raw_benchmark_xml_omitted": true
+      }
+    },
+    {
+      "stig_name": "Apache Server 2.4 UNIX Site Security Technical Implementation Guide",
+      "display_name": "Apache Server 2.4 UNIX Site",
+      "stig_id": "Apache_Server_2-4_UNIX_Site_STIG",
+      "version": "2",
+      "release_info": "Release: 7 Benchmark Date: 01 Jul 2026",
+      "uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+      "reference_identifier": "3997",
+      "rules": [
+        {
+          "group_id_src": "V-214280",
+          "group_id": "V-214280",
+          "group_tree": [
+            {
+              "id": "V-214280",
+              "title": "SRG-APP-000141-WSR-000015",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must not perform user management for hosted applications.",
+          "rule_id_src": "SV-214280r960963_rule",
+          "rule_id": "SV-214280r960963",
+          "rule_version": "AS24-U2-000240",
+          "rule_title": "The Apache web server must not perform user management for hosted applications.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "User management and authentication can be an essential part of any application hosted by the web server. Along with authenticating users, the user management function must perform several other tasks such as password complexity, locking users after a configurable number of failed logons, and management of temporary and emergency accounts. All of this must be done enterprise-wide. \n \nThe web server contains a minimal user management function, but the web server user management function does not offer enterprise-wide user management, and user management is not the primary function of the web server. User management for the hosted applications should be done through a facility that is built for enterprise-wide user management, like LDAP and Active Directory.",
+          "check_content": "Interview the System Administrator (SA) about the role of the Apache web server. \n \nIf the web server is hosting an application, have the SA provide supporting documentation on how the application's user management is accomplished outside of the web server. \n \nIf the web server is not hosting an application, this is Not Applicable. \n \nIf the web server is performing user management for hosted applications, this is a finding. \n \nIf the web server is hosting an application and the SA cannot provide supporting documentation on how the application's user management is accomplished outside of the Apache web server, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Reconfigure any hosted applications on the Apache web server to perform user management outside the web server. \n \nDocument how the hosted application user management is accomplished.",
+          "ccis": [
+            "CCI-000381"
+          ],
+          "legacy_ids": [
+            "SV-102859",
+            "V-92771"
+          ],
+          "srg_id": "SRG-APP-000141-WSR-000015",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "2650fb1d-3cc5-5008-a77d-d2e9f06b18de",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214280r960963_rule",
+            "check_system": "C-15493r277181_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214280"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102859"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92771"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000381"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214282",
+          "group_id": "V-214282",
+          "group_tree": [
+            {
+              "id": "V-214282",
+              "title": "SRG-APP-000141-WSR-000082",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must allow mappings to unused and vulnerable scripts to be removed.",
+          "rule_id_src": "SV-214282r960963_rule",
+          "rule_id": "SV-214282r960963",
+          "rule_version": "AS24-U2-000310",
+          "rule_title": "The Apache web server must allow mappings to unused and vulnerable scripts to be removed.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Scripts allow server-side processing on behalf of the hosted application user or as processes needed in the implementation of hosted applications. Removing scripts not needed for application operation or deemed vulnerable helps to secure the web server. \n \nTo ensure scripts are not added to the web server and run maliciously, script mappings that are not needed or used by the web server for hosted application operation must be removed.",
+          "check_content": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file: \n \n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions \"apache2ctl -V\" or  \"httpd -V\" can also be used.  \nReview \"Script\", \"ScriptAlias\" or \"ScriptAliasMatch\", or \"ScriptInterpreterSource\" directives. \n \nGo into each directory and locate \"cgi-bin\" files. \n \nIf any scripts are present that are not needed for application operation, this is a finding. \n \nIf this is not documented and approved by the Information System Security Officer (ISSO), this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file: \n \n# apachectl -V | egrep -i 'httpd_root|server_config_file' \n-D HTTPD_ROOT=\"/etc/httpd\" \n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\" \n \nRemove any scripts in \"cgi-bin\" directory if they are not needed for application operation. \n \nEnsure this process is documented and approved by the ISSO.",
+          "ccis": [
+            "CCI-000381"
+          ],
+          "legacy_ids": [
+            "SV-102863",
+            "V-92775"
+          ],
+          "srg_id": "SRG-APP-000141-WSR-000082",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "aaef4368-987a-5763-a087-54000b487895",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214282r960963_rule",
+            "check_system": "C-15495r881473_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214282"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102863"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92775"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000381"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214284",
+          "group_id": "V-214284",
+          "group_tree": [
+            {
+              "id": "V-214284",
+              "title": "SRG-APP-000141-WSR-000087",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "Users and scripts running on behalf of users must be contained to the document root or home directory tree of the Apache web server.",
+          "rule_id_src": "SV-214284r960963_rule",
+          "rule_id": "SV-214284r960963",
+          "rule_version": "AS24-U2-000350",
+          "rule_title": "Users and scripts running on behalf of users must be contained to the document root or home directory tree of the Apache web server.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "A web server is designed to deliver content and execute scripts or applications on the request of a client or user. Containing user requests to files in the directory tree of the hosted web application and limiting the execution of scripts and applications guarantees that the user is not accessing information protected outside the application's realm. \n \nThe web server must also prohibit users from jumping outside the hosted application directory tree through access to the user's home directory, symbolic links or shortcuts, or through search paths for missing files.",
+          "check_content": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file: \n \n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions \"apache2ctl -V\" or  \"httpd -V\" can also be used. \n \nVerify there is a single \"Require\" directive with the value of \"all denied\". \n \nVerify there are no \"Allow\" or \"Deny\" directives in the root <Directory> element. \n \nThe following may be useful in extracting root directory elements from the Apache configuration for auditing: \n \n# perl -ne 'print if /^ *<Directory *\\//i .. /<\\/Directory/i' $APACHE_PREFIX/conf/httpd.conf  \n \nIf there are \"Allow\" or \"Deny\" directives in the root <Directory> element, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file: \n \n# apachectl -V | egrep -i 'httpd_root|server_config_file' \n-D HTTPD_ROOT=\"/etc/httpd\" \n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\" \n \nSet the root directory directive as follows: \n \n<Directory> \n... \nRequire all denied \n... \n</Directory> \n \nRemove any \"Deny\" and \"Allow\" directives from the root <Directory> element. \n \nRestart Apache: apachectl restart",
+          "ccis": [
+            "CCI-000381"
+          ],
+          "legacy_ids": [
+            "SV-102867",
+            "V-92779"
+          ],
+          "srg_id": "SRG-APP-000141-WSR-000087",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "632e4b5b-7d06-56d2-a0ae-d82fac2a30c4",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214284r960963_rule",
+            "check_system": "C-15497r881479_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214284"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102867"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92779"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000381"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214286",
+          "group_id": "V-214286",
+          "group_tree": [
+            {
+              "id": "V-214286",
+              "title": "SRG-APP-000175-WSR-000095",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must perform RFC 5280-compliant certification path validation.",
+          "rule_id_src": "SV-214286r1051289_rule",
+          "rule_id": "SV-214286r1051289",
+          "rule_version": "AS24-U2-000380",
+          "rule_title": "The Apache web server must perform RFC 5280-compliant certification path validation.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "A certificate's certification path is the path from the end entity certificate to a trusted root certification authority (CA). Certification path validation is necessary for a relying party to make an informed decision regarding acceptance of an end entity certificate. Certification path validation includes checks such as certificate issuer trust, time validity, and revocation status for each certificate in the certification path. Revocation status information for CA and subject certificates in a certification path is commonly provided via certificate revocation lists (CRLs) or online certificate status protocol (OCSP) responses.",
+          "check_content": "Review the Apache server documentation and deployed configuration to determine whether the application server provides PKI functionality that validates certification paths in accordance with RFC 5280.\n\nIf PKI is not being used, this is NA.\n\nIf the Apache server is using PKI, but it does not perform this requirement, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Configure the Apache server to validate certificates in accordance with RFC 5280.",
+          "ccis": [
+            "CCI-000185"
+          ],
+          "legacy_ids": [
+            "SV-102873",
+            "V-92785"
+          ],
+          "srg_id": "SRG-APP-000175-WSR-000095",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "1f584ac5-2d26-52f4-acce-94451bb605ae",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214286r1051289_rule",
+            "check_system": "C-15499r1051287_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214286"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102873"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92785"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000185"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214287",
+          "group_id": "V-214287",
+          "group_tree": [
+            {
+              "id": "V-214287",
+              "title": "SRG-APP-000176-WSR-000096",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "Only authenticated system administrators or the designated PKI Sponsor for the Apache web server must have access to the Apache web servers private key.",
+          "rule_id_src": "SV-214287r961041_rule",
+          "rule_id": "SV-214287r961041",
+          "rule_version": "AS24-U2-000390",
+          "rule_title": "Only authenticated system administrators or the designated PKI Sponsor for the Apache web server must have access to the Apache web servers private key.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "The web server's private key is used to prove the identity of the server to clients and securely exchange the shared secret key used to encrypt communications between the web server and clients. \n \nBy gaining access to the private key, an attacker can pretend to be an authorized server and decrypt the SSL traffic between a client and the web server.",
+          "check_content": "Verify the \"ssl module\" module is loaded\n# httpd -M | grep -i ssl_module\nOutput:  ssl_module (shared) \n\nIf the \"ssl_module\" is not enabled, this is a finding. \n\nDetermine the location of the ssl.conf file:\n# find / -name ssl.conf\nOutput: /etc/httpd/conf.d/ssl.conf\n\nSearch the ssl.conf file for the SSLCertificateKeyFile location.\n# cat <path to file>/ssl.conf | grep -i SSLCertificateKeyFile\nOutput: SSLCertificateKeyFile /etc/pki/tls/private/localhost.key\n\nIdentify the correct permission set and owner/group of the certificate key file.\n# ls -laH /etc/pki/tls/private/localhost.key\nOutput: -rw-------. 1 root root 1675 Sep 10  2020 /etc/pki/tls/private/localhost.key\n\nThe permission set must be 600 or more restrictive and the owner/group of the key file must be accessible to only authenticated system administrator and the designated PKI Sponsor.\n\nIf the correct permissions are not set or if the private key is accessible by unauthenticated or unauthorized users, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Determine the location of the ssl.conf file:\n# find / -name ssl.conf\nOutput: /etc/httpd/conf.d/ssl.conf\n\nSearch the ssl.conf file for the SSLCertificateKeyFile location.\n# cat <path to file>/ssl.conf | grep -i SSLCertificateKeyFile\nOutput: SSLCertificateKeyFile /etc/pki/tls/private/localhost.key\n\nBased on the \" SSLCertificateKeyFile\" directive path, configure the Apache web server to ensure only authenticated and authorized users can access the web server's private key.  \n\nPermissions must be 600 or more restrictive.",
+          "ccis": [
+            "CCI-000186"
+          ],
+          "legacy_ids": [
+            "SV-102875",
+            "V-92787"
+          ],
+          "srg_id": "SRG-APP-000176-WSR-000096",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "5cd4f4cd-1fb0-53f0-a6b9-c38d24df75ce",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214287r961041_rule",
+            "check_system": "C-15500r881488_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214287"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102875"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92787"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000186"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214288",
+          "group_id": "V-214288",
+          "group_tree": [
+            {
+              "id": "V-214288",
+              "title": "SRG-APP-000223-WSR-000011",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "Cookies exchanged between the Apache web server and client, such as session cookies, must have security settings that disallow cookie access outside the originating Apache web server and hosted application.",
+          "rule_id_src": "SV-214288r1211011_rule",
+          "rule_id": "SV-214288r1211011",
+          "rule_version": "AS24-U2-000470",
+          "rule_title": "Cookies exchanged between the Apache web server and client, such as session cookies, must have security settings that disallow cookie access outside the originating Apache web server and hosted application.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Cookies are used to exchange data between the web server and the client. Cookies, such as a session cookie, may contain session information and user credentials used to maintain a persistent connection between the user and the hosted application since HTTP/HTTPS is a stateless protocol. \n \nWhen the cookie parameters are not set properly (i.e., domain and path parameters), cookies can be shared within hosted applications residing on the same web server or to applications hosted on different web servers residing on the same domain.",
+          "check_content": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file: \n \n# apachectl -V | egrep -i 'httpd_root|server_config_file'\n-D HTTPD_ROOT=\"/etc/httpd\"\n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\"\n\nNote: The apachectl front end is the preferred method for locating the Apache httpd file. For some Linux distributions, \"apache2ctl -V\" or  \"httpd -V\" can also be used. \n\nSearch for the Set-Cookie Header directive:\n\n# cat /<path_to_file>/httpd.conf | grep -i \"Header.*Set-Cookie\"\n \nIf \"HttpOnly\" \"secure\" is not configured, this is a finding. \n \n\"Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;secure\" \n \nReview the code. If, when creating cookies, the following is not occurring, this is a finding: \n \nfunction setCookie() { document.cookie = \"ALEPH_SESSION_ID = $SESS; path = /; secure\"; }",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Determine the location of the \"HTTPD_ROOT\" directory and the \"httpd.conf\" file: \n \n# apachectl -V | egrep -i 'httpd_root|server_config_file' \n-D HTTPD_ROOT=\"/etc/httpd\" \n-D SERVER_CONFIG_FILE=\"conf/httpd.conf\" \n \nAdd or configure the following line: \n \n\"Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;secure\" \n \nAdd the \"secure\" attribute to the JavaScript set cookie in any application code: \n \nfunction setCookie() { document.cookie = \"ALEPH_SESSION_ID = $SESS; path = /; secure\"; }  \n\nHttpOnly cannot be used since by definition this is a cookie set by JavaScript. \n \nRestart www_server and Apache.",
+          "ccis": [
+            "CCI-001664"
+          ],
+          "legacy_ids": [
+            "SV-102883",
+            "V-92795"
+          ],
+          "srg_id": "SRG-APP-000223-WSR-000011",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "81ed09dc-6719-5f67-a39a-c4280465eeed",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214288r1211011_rule",
+            "check_system": "C-15501r1211010_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214288"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102883"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92795"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001664"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214289",
+          "group_id": "V-214289",
+          "group_tree": [
+            {
+              "id": "V-214289",
+              "title": "SRG-APP-000225-WSR-000074",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must augment re-creation to a stable and known baseline.",
+          "rule_id_src": "SV-214289r961122_rule",
+          "rule_id": "SV-214289r961122",
+          "rule_version": "AS24-U2-000540",
+          "rule_title": "The Apache web server must augment re-creation to a stable and known baseline.",
+          "severity": "medium",
+          "weight": "10.0",
+          "discussion": "Making certain that the web server has not been updated by an unauthorized user is always a concern. Adding patches, functions, and modules that are untested and not part of the baseline opens the possibility for security risks. The web server must offer, and not hinder, a method that allows for the quick and easy reinstallation of a verified and patched baseline to guarantee the production web server is up-to-date and has not been modified to add functionality or expose security risks. \n \nWhen the web server does not offer a method to roll back to a clean baseline, external methods, such as a baseline snapshot or virtualizing the web server, can be used.",
+          "check_content": "Interview the System Administrator for the Apache web server. \n \nAsk for documentation on the disaster recovery methods tested and planned for the Apache web server in the event of the necessity for rollback. \n \nIf documentation for a disaster recovery has not been established, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Prepare documentation for disaster recovery methods for the Apache web server in the event of the necessity for rollback. \n \nDocument and test the disaster recovery methods designed.",
+          "ccis": [
+            "CCI-001190"
+          ],
+          "legacy_ids": [
+            "SV-102885",
+            "V-92797"
+          ],
+          "srg_id": "SRG-APP-000225-WSR-000074",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "5a583b4e-88dc-599d-aae5-24bef55a409b",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214289r961122_rule",
+            "check_system": "C-15502r277208_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214289"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102885"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92797"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001190"
+              }
+            ]
+          }
+        },
+        {
+          "group_id_src": "V-214304",
+          "group_id": "V-214304",
+          "group_tree": [
+            {
+              "id": "V-214304",
+              "title": "SRG-APP-000516-WSR-000174",
+              "description": "<GroupDescription></GroupDescription>"
+            }
+          ],
+          "group_title": "The Apache web server must prohibit or restrict the use of nonsecure or unnecessary ports, protocols, modules, and/or services.",
+          "rule_id_src": "SV-214304r1211013_rule",
+          "rule_id": "SV-214304r1211013",
+          "rule_version": "AS24-U2-000960",
+          "rule_title": "The Apache web server must prohibit or restrict the use of nonsecure or unnecessary ports, protocols, modules, and/or services.",
+          "severity": "low",
+          "weight": "10.0",
+          "discussion": "Web servers provide numerous processes, features, and functionalities that use TCP/IP ports. Some of these processes may be deemed unnecessary or too unsecure to run on a production system.\n\nThe web server must provide the capability to disable or deactivate network-related services that are deemed nonessential to the server mission, are too unsecure, or are prohibited by the Ports, Protocols, and Services Management (PPSM) Category Assurance List (CAL) and vulnerability assessments.\n\nConfiguring the web server to implement organizationwide security implementation guides and security checklists guarantees compliance with federal standards and establishes a common security baseline across the DOD that reflects the most restrictive security posture consistent with operational requirements. \n\nSatisfies: SRG-APP-000516-WSR-000174, SRG-APP-000383-WSR-000175",
+          "check_content": "Review the website to determine if HTTP and HTTPS are used in accordance with well-known ports (e.g., 80 and 443) or those ports and services as registered and approved for use by the DOD PPSM. \n \nVerify that any variation in PPS is documented, registered, and approved by the PPSM. \n \nIf well-known ports and services are not approved for use by PPSM, this is a finding.",
+          "check_content_ref": {
+            "href": "Apache_Server_2.4_UNIX_Site_STIG.xml",
+            "name": "M"
+          },
+          "fix_text": "Ensure the website enforces the use of IANA well-known ports for HTTP and HTTPS.",
+          "ccis": [
+            "CCI-001762",
+            "CCI-000366"
+          ],
+          "legacy_ids": [
+            "SV-102931",
+            "V-92843"
+          ],
+          "srg_id": "SRG-APP-000516-WSR-000174",
+          "false_positives": "",
+          "false_negatives": "",
+          "documentable": "false",
+          "security_override_guidance": "",
+          "potential_impacts": "",
+          "third_party_tools": "",
+          "mitigations": "",
+          "mitigation_control": "",
+          "responsibility": "",
+          "ia_controls": "",
+          "classification": "Unclassified",
+          "reference_identifier": "3997",
+          "uuid": "d94804a8-80c2-5ed7-ad59-6cb8b8a7e651",
+          "stig_uuid": "fdcc36ac-0380-5e93-a14c-28c0dcd68a2d",
+          "status": "not_reviewed",
+          "comments": "",
+          "finding_details": "",
+          "overrides": {},
+          "xccdf_source": {
+            "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+            "rule_id": "SV-214304r1211013_rule",
+            "check_system": "C-15517r1211012_chk",
+            "references": [
+              {
+                "href": "",
+                "fields": [
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "title",
+                    "value": "DPMS Target Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "publisher",
+                    "value": "DISA"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "type",
+                    "value": "DPMS Target"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "subject",
+                    "value": "Apache Server 2.4 UNIX Site"
+                  },
+                  {
+                    "namespace": "http://purl.org/dc/elements/1.1/",
+                    "name": "identifier",
+                    "value": "3997"
+                  }
+                ],
+                "text": "DPMS Target Apache Server 2.4 UNIX SiteDISADPMS TargetApache Server 2.4 UNIX Site3997"
+              }
+            ],
+            "group_ids": [
+              "V-214304"
+            ],
+            "identifiers": [
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "SV-102931"
+              },
+              {
+                "system": "http://cyber.mil/legacy",
+                "value": "V-92843"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-001762"
+              },
+              {
+                "system": "http://cyber.mil/cci",
+                "value": "CCI-000366"
+              }
+            ]
+          }
+        }
+      ],
+      "size": 8,
+      "xccdf_source": {
+        "benchmark_id": "Apache_Server_2-4_UNIX_Site_STIG",
+        "namespace": "http://checklists.nist.gov/xccdf/1.1",
+        "file_name": "U_Apache_Server_2-4_Unix_Site_V2R7_Manual_STIG/U_Apache_Server_2-4_UNIX_Site_STIG_V2R7_Manual-xccdf.xml",
+        "profiles": [
+          {
+            "id": "MAC-1_Classified",
+            "title": "I - Mission Critical Classified",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-1_Public",
+            "title": "I - Mission Critical Public",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-1_Sensitive",
+            "title": "I - Mission Critical Sensitive",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-2_Classified",
+            "title": "II - Mission Support Classified",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-2_Public",
+            "title": "II - Mission Support Public",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-2_Sensitive",
+            "title": "II - Mission Support Sensitive",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-3_Classified",
+            "title": "III - Administrative Classified",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-3_Public",
+            "title": "III - Administrative Public",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          },
+          {
+            "id": "MAC-3_Sensitive",
+            "title": "III - Administrative Sensitive",
+            "selections": [
+              {
+                "idref": "V-214280",
+                "selected": true
+              },
+              {
+                "idref": "V-214282",
+                "selected": true
+              },
+              {
+                "idref": "V-214284",
+                "selected": true
+              },
+              {
+                "idref": "V-214286",
+                "selected": true
+              },
+              {
+                "idref": "V-214287",
+                "selected": true
+              },
+              {
+                "idref": "V-214288",
+                "selected": true
+              },
+              {
+                "idref": "V-214289",
+                "selected": true
+              },
+              {
+                "idref": "V-214290",
+                "selected": true
+              },
+              {
+                "idref": "V-214292",
+                "selected": true
+              },
+              {
+                "idref": "V-214296",
+                "selected": true
+              },
+              {
+                "idref": "V-214297",
+                "selected": true
+              },
+              {
+                "idref": "V-214298",
+                "selected": true
+              },
+              {
+                "idref": "V-214300",
+                "selected": true
+              },
+              {
+                "idref": "V-214301",
+                "selected": true
+              },
+              {
+                "idref": "V-214303",
+                "selected": true
+              },
+              {
+                "idref": "V-214304",
+                "selected": true
+              }
+            ]
+          }
+        ],
+        "selection_scope": "all_default_rules",
+        "references": [
+          {
+            "href": "https://cyber.mil",
+            "fields": [
+              {
+                "namespace": "http://purl.org/dc/elements/1.1/",
+                "name": "publisher",
+                "value": "DISA"
+              },
+              {
+                "namespace": "http://purl.org/dc/elements/1.1/",
+                "name": "source",
+                "value": "STIG.DOD.MIL"
+              }
+            ],
+            "text": "DISASTIG.DOD.MIL"
+          }
+        ]
+      },
+      "studio_demo": {
+        "synthetic_assessment": true,
+        "partial_reference": true,
+        "original_rule_count": 16,
+        "included_rule_count": 8,
+        "source_file": "U_Apache_Server_2-4_Unix_Y26M07_STIG.zip",
+        "raw_benchmark_xml_omitted": true
+      }
+    }
+  ],
+  "active": false,
+  "mode": 2,
+  "has_path": false,
+  "cklb_version": "1.0",
+  "target_data": {
+    "target_type": "Computing",
+    "host_name": "demo-web-01",
+    "ip_address": "192.0.2.20",
+    "mac_address": "02:00:00:00:00:20",
+    "fqdn": "demo-web-01.example.invalid",
+    "comments": "DEMO ONLY — fictional asset and assessment. Partial STIG samples. No actual checks executed.",
+    "role": "Member Server",
+    "is_web_database": false,
+    "technology_area": "",
+    "web_db_site": "",
+    "web_db_instance": "",
+    "classification": null
+  },
+  "studio_demo": {
+    "synthetic_assessment": true,
+    "partial_reference": true,
+    "purpose": "Apache 2026 Site and Server unreviewed reference samples",
+    "created_date": "2026-10-27",
+    "reference_inputs": [
+      "U_MOZ_Firefox_STIG_V6R4_Manual-xccdf.xml",
+      "U_MOZ_Firefox_STIG_V6R9_Manual-xccdf.xml",
+      "U_RHEL_8_V2R4_STIG.zip",
+      "U_RHEL_8_V2R8_STIG.zip",
+      "U_Apache_Server_2-4_Unix_Y25M04_STIG.zip",
+      "U_Apache_Server_2-4_Unix_Y26M07_STIG.zip"
+    ],
+    "notice": "Demonstration only. Assessments, assets, reviewers and evidence are fictional. No checks were executed. These are incomplete rule subsets."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "origin_folder": "Test-Docs-20261017",
+  "published_date": "2026-10-27",
+  "files": [
+    {
+      "name": "U_Apache_Server_2-4_Unix_Y25M04_STIG.zip",
+      "bytes": 2150231,
+      "sha256": "e85b0d5747b46599524dd8e125ec32d7042f3be414c3cc9924a614087addeff9"
+    },
+    {
+      "name": "U_Apache_Server_2-4_Unix_Y26M07_STIG.zip",
+      "bytes": 2108426,
+      "sha256": "c6e817b9628c57ce03b2a9948d0c99ce2bdb5fa67ba3f98c12a3d9ca5aa0dc03"
+    },
+    {
+      "name": "U_MOZ_Firefox_STIG_V6R4_Manual-xccdf.xml",
+      "bytes": 104059,
+      "sha256": "b97e712d70f2f0d6de8ebfa1adc5a02d99ef4392578e2fda1fbbae601f729b77"
+    },
+    {
+      "name": "U_MOZ_Firefox_STIG_V6R9_Manual-xccdf.xml",
+      "bytes": 102199,
+      "sha256": "9aa9f9ef907f1d215473fe1430e85cfdf1143487b22932d7bc6979a6307c514d"
+    },
+    {
+      "name": "U_RHEL_8_V2R4_STIG.zip",
+      "bytes": 1576558,
+      "sha256": "24c655685e7d3bff479d1d23b412c016b6e5c641729ca7d6e865d4223749fc95"
+    },
+    {
+      "name": "U_RHEL_8_V2R8_STIG.zip",
+      "bytes": 1595378,
+      "sha256": "5180ff6be545c306950f2041330e0cba835b148529e3c51c55c386f95c363a8c"
+    }
+  ]
+}

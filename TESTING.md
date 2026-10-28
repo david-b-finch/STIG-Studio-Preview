@@ -1,6 +1,6 @@
 # Experimental Preview — Testing Guide
 
-**Build:** STIG Studio v0.7.5; v0.7.4 remains available for comparison.
+**Build:** STIG Studio v0.7.6; v0.7.5 remains available for comparison.
 
 **Status:** Experimental; not validated for operational use.
 
@@ -12,14 +12,33 @@ credentials, classified material, or controlled data to this public project.
 
 ## Version comparison and offline testing
 
-- [ ] Use **Open v0.7.5** and **Open previous v0.7.4** on the landing page.
+- [ ] Use **Open v0.7.6** and **Open previous v0.7.5** on the landing page.
 - [ ] Use each adjacent **Download** button; verify it downloads the named HTML
       rather than navigating away from the landing page.
 - [ ] Disconnect from the network and open the downloaded HTML directly.
 - [ ] Open synthetic CKLB/reference inputs, edit, save, and reopen offline.
 - [ ] Compare the same synthetic workflow in both versions; record the version.
 
-## Library and working-data recovery (v0.7.5)
+## New demo and reference downloads
+
+- [ ] Download the core demo ZIP or individual CKLBs from the landing page.
+- [ ] Open Firefox 01, compare with 02: exactly three changed rules.
+- [ ] Import 02 into 01; the initial all-fields preview proposes three changes.
+- [ ] Compare Apache 06 with 09: exactly four changed rules across Site/Server.
+- [ ] Open 08: three STIGs / 34 rules for the fictional combined web host.
+- [ ] Use the RHEL 04 gap filter to find its intentionally blank Open finding.
+- [ ] Open the separate Viewer multi-checklist fidelity fixture: 15 STIG entries
+      and 164 synthetic rule records; repeated families/releases are expected.
+- [ ] Download original ZIP/XML from reference-archives and import. Each Apache
+      ZIP must offer both Site and Server. Check the older/newer source versions.
+- [ ] Compare navigator filters stay inside the sidebar. If text/counts do not
+      fit, expand Quick Filters with mouse or Enter; include/exclude/clear and
+      active counts remain usable without changing assessment data.
+
+The [demo guide](demo-checklists/index.html) records exact outcomes. Samples
+are partial and fictional; full reference import/update adds omitted rules.
+
+## Library and working-data recovery (introduced in v0.7.5)
 
 - [ ] Open **STIG Library**, add the synthetic reference ZIP or XML, and inspect
       its STIG metadata and rule count.

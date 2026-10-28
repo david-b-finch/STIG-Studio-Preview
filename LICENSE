@@ -1,9 +1,9 @@
-STIG STUDIO v0.7.4 EXPERIMENTAL PREVIEW — LIMITED EVALUATION PERMISSION
+STIG STUDIO v0.7.6 AND v0.7.5 EXPERIMENTAL PREVIEWS — LIMITED EVALUATION PERMISSION
 
 Copyright (c) 2026 David Finch. All rights reserved.
 
 This permission applies only to the files in the STIG-Studio-Preview repository
-and the specific experimental version of STIG Studio published from it.
+and the specific experimental versions of STIG Studio named above.
 
 Permission is granted, without fee, to individuals to access, run, and evaluate
 this preview through the official GitHub Pages site and to download one or more
@@ -15,8 +15,8 @@ Service for public repositories, no other rights are granted. In particular,
 no general permission is granted to redistribute, sell, sublicense, publish
 modified versions, or incorporate this source code into other products.
 
-This permission does not cover other repositories, earlier versions, later
-versions, or third-party materials. All rights not expressly granted are reserved.
+This permission does not cover other repositories, versions not named above,
+or third-party materials. All rights not expressly granted are reserved.
 
 THIS SOFTWARE IS EXPERIMENTAL AND IS PROVIDED "AS IS", WITHOUT WARRANTY OF
 ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS

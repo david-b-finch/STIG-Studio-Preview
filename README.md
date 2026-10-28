@@ -1,4 +1,4 @@
-# STIG Studio v0.7.5 — Experimental Public Preview
+# STIG Studio v0.7.6 — Experimental Public Preview
 
 > **EXPERIMENTAL. NOT FOR OPERATIONAL ASSESSMENTS OR PRODUCTION REPORTING.**
 >
@@ -6,7 +6,7 @@
 > personally identifying, or real system assessment information to public Issues.
 
 This public repository publishes **the current experimental snapshot** of STIG Studio
-v0.7.5 for controlled testing and community feedback. It is independent of the
+v0.7.6 for controlled testing and community feedback. It is independent of the
 main `STIG-Tools` development repository. It is **not** an official DISA, DoD,
 or U.S. Government product or endorsement.
 
@@ -17,7 +17,7 @@ After GitHub Pages deployment, visit:
 https://david-b-finch.github.io/STIG-Studio-Preview/
 
 The landing page offers adjacent **Open** and **Download** buttons for both
-v0.7.5 and the previous v0.7.4. Download the standalone HTML and open it directly
+v0.7.6 and the previous v0.7.5. Download the standalone HTML and open it directly
 in a current browser to test offline. No installation or server is needed.
 The application runs in a browser and has no build process or server-side logic.
 Hosting is provided by GitHub Pages; ordinary access logs may apply.
@@ -32,7 +32,42 @@ Hosting is provided by GitHub Pages; ordinary access logs may apply.
 6. Repeat with [`fixtures/synthetic-preview-reference.cklb`](fixtures/synthetic-preview-reference.cklb) for comparison behavior.
 7. Report unexpected behavior using a GitHub Issue with **synthetic data only**.
 
-## New in v0.7.5
+## New in v0.7.6
+
+- Focused source refactoring, with one standalone offline HTML for users.
+- Asset-combiner rules link to their actual containing STIG UUID; legacy
+  missing UUIDs are stable, and combined filenames avoid case collisions.
+- Comparison navigator filters stay inside the existing 320-pixel sidebar.
+  Oversized filter text/counts switch to a keyboard-accessible Quick Filters
+  disclosure. Filter state/counts remain available; colors/editors are unchanged.
+- 175 integration checks passed in each of Firefox and Chrome. Packaging,
+  native filter screenshots/keyboard, earlier report/ZIP/PDF, browser recovery
+  and actual 0.7.5-to-0.7.6 recovery checks passed. Viewer 3.8.1's actual file
+  handlers accepted the tested synthetic outputs; full GUI acceptance remains
+  separate. See [validation scope](VALIDATION.md).
+
+## Downloadable test data
+
+- [Demo guide and downloads](demo-checklists/index.html): ten clearly fictional
+  partial CKLBs (11–34 rules), [ZIP bundle](demo-checklists/stig-studio-demo-checklists.zip),
+  comparison pairs and expected outcomes. Firefox 01/02 differ in three rules;
+  Apache 06/09 differ in four. Assets use reserved demo names/addresses.
+- [Additional Viewer 3 multi-checklist](demo-checklists/multi-checklist-from-stigviewer3.cklb):
+  15 STIG entries/164 synthetic rule records matching the core demos, with
+  blank/default asset fields. This is a separate fidelity fixture with repeated
+  STIG families/releases, not an ordinary single-asset comparison pair.
+- [Reference archives](reference-archives/index.html): six original DISA ZIP/XML
+  inputs for Firefox, RHEL 8 and Apache Site/Server across older/newer releases.
+  Files are byte-for-byte copies of the supplied `Test-Docs-20261017` folder;
+  [source hashes](reference-archives/manifest.json) record their provenance.
+
+Only fictional completed assessments are published. Reference packages are
+third-party materials with their original notices; the application evaluation
+terms do not grant new rights in them. No generator or installation is needed
+to use these downloads. The demo manifest records the application used at
+fixture creation; its hash can differ from the latest application snapshot.
+
+## Earlier workflows and library (v0.7.5)
 
 - A file-based **STIG Library** screen opens/merges/exports `.library.json`
   catalogs, imports reference ZIP/XML, previews releases, and creates unreviewed
@@ -115,7 +150,7 @@ asset details separately through **Asset Info**.
 
 Try [`fixtures/synthetic-reference.zip`](fixtures/synthetic-reference.zip) or
 [`fixtures/synthetic-reference.xml`](fixtures/synthetic-reference.xml); both
-contain one synthetic rule. No DISA packages or real assessment data are included.
+contain one synthetic rule. Original DISA packages are also available under `reference-archives`; completed assessment samples remain fictional.
 
 Reference archives are processed locally. Stored and DEFLATE ZIP entries are
 supported using native browser decompression. Unsupported archive features,
@@ -124,32 +159,32 @@ Profiles that tailor rule selection, inheritance, automated/complex checks, and
 SCAP data-stream wrappers are not supported. Older browsers without native raw
 DEFLATE support can import XML extracted locally instead.
 
-Firefox offline integration tests cover synthetic inputs plus local OneDrive
-and ASD reference packages. Chromium and STIG Viewer 3 interoperability have
-not been validated; successful Studio reimport is not interoperability certification.
+Firefox/Chrome offline checks cover synthetic and locally supplied inputs. Actual Viewer 3 file handlers were checked; successful Studio reimport or handler acceptance is not full GUI interoperability certification.
 
-## Known or suspected issues under evaluation
+## Remaining acceptance work
 
-- Comparison matching may match rules across different STIGs incorrectly.
-- CKL XML -> CKLB JSON conversion may omit unknown XML metadata.
-- Asset combining may omit data from older inputs or create inconsistent `stig_uuid` links.
-- Archive output and filename collisions have not been fully validated.
-
-These are preliminary source-review findings, not a list of reproduced failures.
-Do not rely on this build for production or authoritative compliance data.
+- Full Viewer graphical open/edit/save/re-export workflows and Edge on managed
+  workstations remain manual checks. The additional Viewer-supplied fixture
+  establishes known synthetic input provenance, not general certification.
+- Natural Memory Saver timing, power loss and private/enterprise storage policy
+  behavior remain unverified. Keep CKLB/Workspace backups.
+- CKL/CSV are mapped interchange formats and cannot retain every CKLB field.
+- Real scanner outputs and additional complex XCCDF/package variations require
+  their own implementation and tests. Applicability planning and severity override
+  editing are intentionally excluded.
 
 ## Source preservation
 
-`stig-studio-v0.7.5.html` is preserved **byte-for-byte** from the
-v0.7.5 development snapshot. SHA-256:
+`stig-studio-v0.7.6.html` is preserved **byte-for-byte** from the
+v0.7.6 development snapshot. SHA-256:
 
 ```text
-b3a382d5e1418b3552ead51d10be1d9cc261fbe07a9db329fa4d36ab2e39d865
+7903c73e4622dde6ec767dd770e8e7d071384576a54e38d024f290a6eb61da33
 ```
 
 All explanatory and warning content lives separately in `index.html` and
 supporting documents. Changes made to the development repository do not
-automatically publish here. The earlier 0.7.1, 0.7.2, 0.7.3, and 0.7.4 HTML snapshots remain unchanged for reference.
+automatically publish here. The earlier 0.7.1, 0.7.2, 0.7.3, 0.7.4, and 0.7.5 HTML snapshots remain unchanged for reference.
 
 ## Licensing and feedback
 

@@ -1,0 +1,8 @@
+# Preserve published download bytes and recorded hashes across checkout settings.
+stig-studio-v*.html -text
+demo-checklists/*.cklb -text -whitespace
+demo-checklists/*.json -text
+demo-checklists/*.zip -text
+reference-archives/*.xml -text -whitespace
+reference-archives/*.zip -text
+reference-archives/*.json -text

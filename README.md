@@ -1,4 +1,4 @@
-# STIG Studio v0.7.7 — Experimental Public Preview
+# STIG Studio v0.7.8 — Experimental Public Preview
 
 > **EXPERIMENTAL. NOT FOR OPERATIONAL ASSESSMENTS OR PRODUCTION REPORTING.**
 >
@@ -6,7 +6,7 @@
 > personally identifying, or real system assessment information to public Issues.
 
 This public repository publishes **the current experimental snapshot** of STIG Studio
-v0.7.7 for controlled testing and community feedback. It is independent of the
+v0.7.8 for controlled testing and community feedback. It is independent of the
 main `STIG-Tools` development repository. It is **not** an official DISA, DoD,
 or U.S. Government product or endorsement.
 
@@ -17,7 +17,7 @@ After GitHub Pages deployment, visit:
 https://david-b-finch.github.io/STIG-Studio-Preview/
 
 The landing page offers adjacent **Open** and **Download** buttons for both
-v0.7.7 and the previous v0.7.6. Download the standalone HTML and open it directly
+v0.7.8 and the previous v0.7.7. Download the standalone HTML and open it directly
 in a current browser to test offline. No installation or server is needed.
 The application runs in a browser and has no build process or server-side logic.
 Hosting is provided by GitHub Pages; ordinary access logs may apply.
@@ -32,7 +32,32 @@ Hosting is provided by GitHub Pages; ordinary access logs may apply.
 6. Repeat with [`fixtures/synthetic-preview-reference.cklb`](fixtures/synthetic-preview-reference.cklb) for comparison behavior.
 7. Report unexpected behavior using a GitHub Issue with **synthetic data only**.
 
-## New in v0.7.7
+## New in v0.7.8
+
+- **STIG Explorer:** a fixed tab with STIG Navigator, Rule Navigator and Rule
+  Information. File contains Load DISA ZIP/XML and Open/Merge/Export Library.
+  Browse all rules through search and bounded pages, with Tabs or Sections.
+- Check the main STIG box for latest, or expand the right-hand + and check any
+  exact version/release. One release per STIG is retained. Older selections
+  survive collapsing, searches, importing newer references and Select Matching.
+- Create complete unreviewed single/multi-STIG checklists with blank answers and
+  asset information, fresh internal UUIDs and preserved source IDs/metadata.
+  Clicking selected Explorer again, or an assessment tab, returns to assessments.
+- **New Checklist** distinguishes creation from Open Checklist. **Save CKLB As**
+  and Ctrl/Command+Shift+S name a full CKLB download. Recovery reports a local
+  browser copy; it does not rewrite CKLB files. File also offers workspace backup
+  and Save All. Project follows Help; branding sits at the far right.
+- Quick filters toggle include/clear. Explicit exclusions, field-specific text
+  filters and comparison filters share Advanced Filters. Bulk Edit shows counted
+  selected-visible/all-filtered scopes and only displays needed text editors.
+- Dark styling, fixed assessment navigator width and vertically stacked Finding
+  Details/Comments remain. Editor accessible names distinguish Working/Reference.
+- **210 integration checks per browser**, three packaging checks, and eight
+  native offline Explorer workflow groups per browser passed. Tests include
+  latest-default and older-release CKLB creation/download/reimport. See
+  [validation scope](VALIDATION.md) and the [transition exercise](TRANSITION-0.7.8.md).
+
+## Earlier comparison improvements (v0.7.7)
 
 - **Advanced Filters** opens the existing drawer directly above the rule list,
   including when Quick Filters is collapsed.
@@ -193,16 +218,16 @@ Firefox/Chrome offline checks cover synthetic and locally supplied inputs. Actua
 
 ## Source preservation
 
-`stig-studio-v0.7.7.html` is preserved **byte-for-byte** from the
-v0.7.7 development snapshot. SHA-256:
+`stig-studio-v0.7.8.html` is preserved **byte-for-byte** from the
+v0.7.8 development snapshot. SHA-256:
 
 ```text
-35770efab43dadfe0d69a86a8c3d39074914ad8e4df3f554a3a4e0cef90fa9a8
+94acbb0cc74224822601d954858c37824ccd235f8676c8da97531e884ad4d732
 ```
 
 All explanatory and warning content lives separately in `index.html` and
 supporting documents. Changes made to the development repository do not
-automatically publish here. The earlier 0.7.1, 0.7.2, 0.7.3, 0.7.4, 0.7.5, and 0.7.6 HTML snapshots remain unchanged for reference.
+automatically publish here. The earlier 0.7.1, 0.7.2, 0.7.3, 0.7.4, 0.7.5, 0.7.6, and 0.7.7 HTML snapshots remain unchanged for reference.
 
 ## Licensing and feedback
 

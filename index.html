@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Experimental public preview of STIG Studio v0.7.7, an offline-first STIG checklist review application. Not for operational use.">
+  <meta name="description" content="Experimental public preview of STIG Studio v0.7.8, an offline-first STIG checklist review application. Not for operational use.">
   <meta name="robots" content="noindex, nofollow">
-  <title>STIG Studio v0.7.7 | Experimental Preview</title>
+  <title>STIG Studio v0.7.8 | Experimental Preview</title>
   <style>
     :root{color-scheme:dark;--bg:#0b1116;--surface:#141e26;--line:#31424e;--text:#eaf0f4;--muted:#b3c4ce;--accent:#55c6df;--warning:#f1bf6a}
     *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:radial-gradient(circle at 95% 0%,#15343d 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif}
@@ -22,22 +22,22 @@
 <body>
 <main>
   <div class="eyebrow">STIG Studio · Public test build</div>
-  <h1>STIG Studio <span style="color:var(--accent)">v0.7.7</span></h1>
+  <h1>STIG Studio <span style="color:var(--accent)">v0.7.8</span></h1>
   <div class="version">Experimental preview · Snapshot build · Not a validated release</div>
-  <p class="lead">An offline-first, browser-based tool for viewing and editing STIG checklists, comparing assessments, and combining asset checklists. This public preview is for usability feedback and controlled testing.</p>
+  <p class="lead">An offline-first, browser-based tool for viewing and editing STIG checklists, comparing assessments, and combining asset checklists. This public preview includes a three-pane STIG Explorer and is for usability feedback and controlled testing.</p>
   <section class="warning" aria-label="Experimental release warning">
     <strong>EXPERIMENTAL — DO NOT USE FOR OPERATIONAL ASSESSMENTS</strong>
     <p>This build has known or suspected data-integrity risks affecting conversion, comparison, and combined exports. It has not passed a full regression or interoperability test suite. Do not rely on the exported results for authorization, compliance, or production reporting.</p>
     <p><strong>Use synthetic or fully sanitized test files only.</strong> Do not load classified, controlled, sensitive, or actual system assessment data into this public test deployment.</p>
   </section>
   <div class="actions">
-    <a class="btn" href="./stig-studio-v0.7.7.html">Open v0.7.7 →</a>
-    <a class="btn secondary" href="./stig-studio-v0.7.7.html" download="stig-studio-v0.7.7.html">Download v0.7.7</a>
+    <a class="btn" href="./stig-studio-v0.7.8.html">Open v0.7.8 →</a>
+    <a class="btn secondary" href="./stig-studio-v0.7.8.html" download="stig-studio-v0.7.8.html">Download v0.7.8</a>
   </div>
   <p>Download the single HTML file and open it in your browser to test offline. Keep CKLB and library files as separate backups.</p>
   <div class="actions" aria-label="Previous version">
-    <a class="btn secondary" href="./stig-studio-v0.7.6.html">Open previous v0.7.6 →</a>
-    <a class="btn secondary" href="./stig-studio-v0.7.6.html" download="stig-studio-v0.7.6.html">Download v0.7.6</a>
+    <a class="btn secondary" href="./stig-studio-v0.7.7.html">Open previous v0.7.7 →</a>
+    <a class="btn secondary" href="./stig-studio-v0.7.7.html" download="stig-studio-v0.7.7.html">Download v0.7.7</a>
     <a class="btn secondary" href="https://github.com/david-b-finch/STIG-Studio-Preview/issues/new/choose">Report an issue</a>
   </div>
   <div class="grid" id="test-downloads">
@@ -61,7 +61,7 @@
     </section>
     <section class="card">
       <h2>STIG reference archives</h2>
-      <p>Original DISA reference ZIP/XML files, copied without changes. Use <strong>Import STIG Reference Archives</strong> or add them to STIG Library to create unreviewed assessments.</p>
+      <p>Original DISA reference ZIP/XML files, copied without changes. Use <strong>Import STIG Reference Archives</strong> or use STIG Explorer → File → Load DISA ZIP / XML to browse references and create unreviewed assessments.</p>
       <ul><li><a href="./reference-archives/U_MOZ_Firefox_STIG_V6R4_Manual-xccdf.xml" download>Firefox V6R4 · XML</a></li>
 <li><a href="./reference-archives/U_MOZ_Firefox_STIG_V6R9_Manual-xccdf.xml" download>Firefox V6R9 · XML</a></li>
 <li><a href="./reference-archives/U_RHEL_8_V2R4_STIG.zip" download>RHEL 8 V2R4 · ZIP</a></li>
@@ -76,10 +76,11 @@
     <section class="card">
       <h2>What to try</h2>
       <ul>
-        <li>Compare v0.7.7 with v0.7.6 using the Open or Download buttons above.</li>
+        <li>Compare v0.7.8 with v0.7.7 using the Open or Download buttons above.</li>
         <li>Try the demo comparisons, multi-STIG Apache checklists, and original reference downloads above.</li>
-        <li>Open STIG Library, add the reference ZIP/XML, export a library file, reopen it, and create an unreviewed checklist.</li>
-        <li>Edit synthetic working data, check Autosave, reload, and try recovery. Clear All Browser Recovery removes recovery copies and pauses autosave while keeping open work.</li>
+        <li>Open STIG Explorer, then File → Load DISA ZIP / XML. Check a STIG for its latest release, or expand + and check an older release. Create, save, and reopen an unreviewed checklist.</li>
+        <li>Use File → Save CKLB As to name a full assessment copy. Try quick filter include/clear toggles, explicit exclusions, and field-specific text filters in Advanced Filters.</li>
+        <li>Edit synthetic working data, check Recovery, reload, and try recovery. Clear All Browser Recovery removes recovery copies and pauses autosave while keeping open work.</li>
         <li>Try stacked Finding Details/Comments, Tabs/Sections, and rule status hotkeys 1/N, 2/O, 3/X, and 4/R.</li>
         <li>For a minimal one-rule example, use Import STIG Reference Archives with the <a href="./fixtures/synthetic-reference.zip" download>synthetic reference ZIP</a> or <a href="./fixtures/synthetic-reference.xml" download>XML</a>, then save the new assessment.</li>
         <li>Change a test rule's status, comments, or finding details.</li>
@@ -108,7 +109,7 @@
     <section class="card">
       <h2>Privacy and local processing</h2>
       <p>Source inspection indicates that checklist parsing and export occur in your browser without an application server or intentional checklist uploads. This is <em>not</em> an independent security audit.</p>
-      <p>GitHub may process ordinary site-visitor information. Files you save are downloaded through your browser. In v0.7.7, working assessments autosave to this browser for recovery when storage is available; use Autosave → Clear All Browser Recovery to remove those copies. Library changes need an explicit Export Library. Browser recovery does not replace file backups.</p>
+      <p>GitHub may process ordinary site-visitor information. Files you save are downloaded through your browser. In v0.7.8, working assessments autosave to this browser for recovery when storage is available; use Recovery → Clear All Browser Recovery to remove those copies. Library changes need an explicit Export Library. Browser recovery does not replace file backups.</p>
     </section>
     <section class="card">
       <h2>Scope and ownership</h2>
@@ -117,7 +118,7 @@
     </section>
   </div>
   <footer>
-    <p>Version 0.7.7 experimental snapshot. This preview may be replaced or withdrawn. Keep local backups of any test output and verify exported content before using it for further testing. Reference packages retain their original notices; Studio evaluation terms apply to the application.</p>
+    <p>Version 0.7.8 experimental snapshot. This preview may be replaced or withdrawn. Keep local backups of any test output and verify exported content before using it for further testing. Reference packages retain their original notices; Studio evaluation terms apply to the application.</p>
     <p><a href="https://github.com/david-b-finch/STIG-Studio-Preview">Preview repository</a> · <a href="./TESTING.md">Test instructions</a> · <a href="./LICENSE">Evaluation terms</a></p>
   </footer>
 </main>

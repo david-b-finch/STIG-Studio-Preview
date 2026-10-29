@@ -1,6 +1,6 @@
 # Experimental Preview — Testing Guide
 
-**Build:** STIG Studio v0.7.7; v0.7.6 remains available for comparison.
+**Build:** STIG Studio v0.7.8; v0.7.7 remains available for comparison.
 
 **Status:** Experimental; not validated for operational use.
 
@@ -12,14 +12,49 @@ credentials, classified material, or controlled data to this public project.
 
 ## Version comparison and offline testing
 
-- [ ] Use **Open v0.7.7** and **Open previous v0.7.6** on the landing page.
+- [ ] Use **Open v0.7.8** and **Open previous v0.7.7** on the landing page.
 - [ ] Use each adjacent **Download** button; verify it downloads the named HTML
       rather than navigating away from the landing page.
 - [ ] Disconnect from the network and open the downloaded HTML directly.
 - [ ] Open synthetic CKLB/reference inputs, edit, save, and reopen offline.
 - [ ] Compare the same synthetic workflow in both versions; record the version.
 
-## New in 0.7.7: carry previous notes forward
+## New in 0.7.8: Explorer and assessment usability
+
+- [ ] Open **STIG Explorer**, then **File → Load DISA ZIP / XML**. Load both
+      supplied Firefox XML revisions and the Apache ZIP. Apache Site and Server
+      remain distinct STIGs; Firefox revisions share a family with + on the right.
+- [ ] Check the main Firefox box; latest V6R9 is the default. Expand + and check
+      V6R4 instead. Only one release is selected, and the parent shows V6R4.
+      Collapse/search/Select Matching must retain that explicit choice.
+- [ ] Read Check, Discussion, Fix, References and Details in Tabs/Sections. Search
+      rule text; browsing does not create or edit assessments. Use page/arrow/
+      Home/End navigation when a reference contains more than 100 rules.
+- [ ] Create complete unreviewed checklists from both latest-default and explicit
+      older selections. Asset Info is separate. Save and reopen the CKLBs; counts,
+      versions, release information and exact rule identifiers must match.
+- [ ] Export the library file, reopen it with File → Open Library File, and repeat.
+      The collection requires explicit Export Library and is excluded from recovery.
+- [ ] Return by clicking selected Explorer again or an assessment tab. Existing
+      answers, filters and reading preferences must remain.
+- [ ] Use **New Checklist** for creation and **Open Checklist** for existing files.
+      Name a complete CKLB download with **File → Save CKLB As** or
+      Ctrl/Command+Shift+S; cancel once and then save/reopen the actual download.
+- [ ] Quick status/severity filters toggle include/clear. In **Advanced Filters**,
+      try separate Exclude buttons and the Text tab. The visible summary should
+      explain active conditions; Clear Filters should restore all rules.
+- [ ] In Bulk Edit, compare **Selected visible rules (N)** with **All filtered
+      rules (N)**. Keep/reference-copy modes hide manual text boxes. Preview,
+      cancel, apply and undo previous-reference note copying as below.
+- [ ] Compare local Recovery with a CKLB download: local checkpoints do not
+      rewrite files. Test keyboard navigation and a short desktop window.
+
+See the [unassisted transition exercise](TRANSITION-0.7.8.md). These are test
+instructions; full Viewer GUI, managed Edge and human usability acceptance
+remain separate. Selected-STIG summaries, creation naming, Export Library As,
+zoom refinements and the next interoperability pass are planned for 0.7.8-1.
+
+## Earlier 0.7.7: carry previous notes forward
 
 - [ ] Open demo **03 Firefox V6R9** as the working checklist and compare it with
       demo **01 Firefox V6R4** as Reference. Verify the current/new release stays

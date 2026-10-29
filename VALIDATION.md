@@ -1,4 +1,40 @@
-# 0.7.7 validation scope
+# 0.7.8 validation scope
+
+Validation date: 2026-10-28.
+
+- **210 offline integration checks passed in Chrome 156.0.8078.47 and Firefox
+  140.17.0** using the standalone HTML through `file://`. They cover imports,
+  assessment preservation, comparison, filters, bulk/undo, exports, library,
+  recovery, migration, scans and combiner behavior, plus 0.7.8 usability/Explorer.
+- Three build/packaging checks passed. The public HTML is copied byte-for-byte
+  from development; README.md records SHA-256. The app has one inline script,
+  no fetched modules/dependencies, and retains dark colors, fixed assessment
+  navigator width and bounded stacked editors.
+- Eight native offline Explorer workflow groups passed per browser. Supplied
+  Firefox V6R9 XML, Apache Site/Server ZIP and a locally available ASD ZIP formed
+  four STIGs/380 rules. Actual library and CKLB downloads reopened, metadata/IDs
+  and new UUID links survived, and the original assessment stayed unchanged.
+  The private/local ASD input is not part of these public downloads.
+- Actual Firefox V6R4/V6R9 references verified right-hand disclosures, trusted
+  keyboard checkboxes, latest-default V6R9 creation, explicit V6R4 selection,
+  preservation through collapse/bulk selection, and exact save/reopen of all 34
+  unreviewed V6R4 rules. Short-window checks requested 1024×600 and 1280×720;
+  Firefox content height excludes browser chrome. Screenshots were inspected.
+- Earlier Viewer handler outputs were reused in three integration checks.
+  Full Viewer graphical interoperability was not rerun or established for this
+  snapshot. Natural tab discard/power loss, managed Edge, browser zoom and full
+  assistive-technology/human usability acceptance remain separate checks.
+
+Preview packaging checks cover landing-page layout at 1280/600 pixels, local
+links, adjacent Open/Download controls for 0.7.8 and 0.7.7, byte-identical app
+and demo/reference downloads, and downloaded offline `file://` startup/Explorer.
+The new snapshot is published separately; historical HTML and test data remain
+unchanged. These development checks are not interoperability certification.
+
+0.7.8-1 will contain the next selected-STIG summary/naming and validation work.
+Those proposed additions are not part of this 0.7.8 snapshot.
+
+## Earlier 0.7.7 validation scope
 
 Validation date: 2026-10-27.
 
